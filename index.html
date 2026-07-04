@@ -1554,30 +1554,43 @@
       text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
     }
 
-    .skill-item {
+    .skill-items-list {
       display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-item {
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 8px 12px;
-      margin-bottom: 6px;
+      gap: 8px;
+      padding: 6px 10px;
       background: rgba(0, 0, 0, 0.25);
-      border: 1px solid rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 4px;
-      font-size: 13.5px;
+      font-size: 12.5px;
       color: #f1f5f9;
+      transition: background-color 0.2s, border-color 0.2s;
     }
 
-    .skill-item:last-child {
-      margin-bottom: 0;
+    .skill-item:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.15);
     }
 
-    .skill-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #ffffff;
+    .skill-icon {
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
-      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    .skill-item img {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+      flex-shrink: 0;
     }
 
     /* ── CREDENTIALS (Certifications) ── */
@@ -2287,17 +2300,8 @@
 
     /* ── SKILLS BRICK ANATOMY LAYOUT ── */
     .skills-layout-wrapper {
-      display: grid;
-      grid-template-columns: 2fr 1.2fr;
-      gap: 32px;
-      align-items: flex-start;
+      display: block;
       margin-top: 32px;
-    }
-
-    @media (max-width: 900px) {
-      .skills-layout-wrapper {
-        grid-template-columns: 1fr;
-      }
     }
 
     .brick-anatomy-card {
@@ -2518,17 +2522,17 @@
 
     @media (max-width: 480px) {
       .journey-block {
-        width: 90px;
+        width: 75px;
         height: 40px;
       }
 
       .jb-front {
-        width: 90px;
+        width: 75px;
         height: 36px;
       }
 
       .jb-top {
-        width: 90px;
+        width: 75px;
         height: 10px;
         top: -10px;
       }
@@ -2539,8 +2543,8 @@
       }
 
       .jb-label-container {
-        left: 105px;
-        width: 140px;
+        left: 90px;
+        width: calc(100% - 105px);
       }
 
       .jb-label-title {
@@ -2995,15 +2999,26 @@
               <span class="tag">MCP</span>
               <span class="tag">Docker</span>
             </div>
-            <a class="proj-link" href="https://huggingface.co/spaces/Vishnuporkulath/career-pilot" target="_blank"
-              rel="noopener">
-              Live Demo
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                <polyline points="15 3 21 3 21 9" />
-                <line x1="10" y1="14" x2="21" y2="3" />
-              </svg>
-            </a>
+            <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+              <a class="proj-link" href="https://huggingface.co/spaces/Vishnuporkulath/career-pilot" target="_blank"
+                rel="noopener">
+                Live Demo
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+              <a class="proj-link" href="https://gist.github.com/vishnup102002/a53a2aa0a17ce1d4d26f6e94c8adc3ca"
+                target="_blank" rel="noopener" style="color: var(--accent-2);">
+                Technical Teardown
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+            </div>
           </div>
 
           <div class="glass proj-card reveal">
@@ -3065,256 +3080,319 @@
           <h2 class="section-title">Skills</h2>
         </div>
         <div class="skills-layout-wrapper">
+          <!-- Highlighted Specialties (F-Pattern Reading) -->
+          <div class="reveal"
+            style="margin-bottom: 28px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+            <span
+              style="font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-3);">Core
+              Specialties:</span>
+            <span class="tag tag-rnd"
+              style="font-size: 13px; padding: 6px 12px; font-weight: 700; border-radius: 4px; box-shadow: 0 2px 0 #0f172a;">Agentic
+              AI Architect</span>
+            <span class="tag tag-rnd"
+              style="font-size: 13px; padding: 6px 12px; font-weight: 700; border-radius: 4px; box-shadow: 0 2px 0 #0f172a;">Production
+              LangGraph</span>
+            <span class="tag tag-rnd"
+              style="font-size: 13px; padding: 6px 12px; font-weight: 700; border-radius: 4px; box-shadow: 0 2px 0 #0f172a;">GraphRAG
+              / Neo4j Specialist</span>
+          </div>
           <div class="skills-grid">
 
             <div class="glass-sm skill-group bin-red reveal">
               <div class="skill-group-title">AI & Core Domains</div>
-              <div class="skill-item"><span class="skill-dot"></span>Generative AI</div>
-              <div class="skill-item"><span class="skill-dot"></span>Advanced RAG</div>
-              <div class="skill-item"><span class="skill-dot"></span>Agentic AI (LangGraph)</div>
-              <div class="skill-item"><span class="skill-dot"></span>ReAct Loops</div>
+              <div class="skill-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/6213/6213731.png" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="GenAI">
+                Generative AI
+              </div>
+              <div class="skill-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/8297/8297437.png" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="RAG">
+                Advanced RAG
+              </div>
+              <div class="skill-item">
+                <img src="https://cdn.jsdelivr.net/npm/@thesvg/icons/icons/langgraph-langchain.svg"
+                  style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="LangGraph">
+                Agentic AI (LangGraph)
+              </div>
+              <div class="skill-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/5610/5610952.png" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="ReAct">
+                ReAct Loops
+              </div>
             </div>
 
             <div class="glass-sm skill-group bin-yellow reveal">
               <div class="skill-group-title">Languages</div>
-              <div class="skill-item"><span class="skill-dot"></span>Python</div>
-              <div class="skill-item"><span class="skill-dot"></span>Java</div>
-              <div class="skill-item"><span class="skill-dot"></span>JavaScript / TypeScript</div>
-              <div class="skill-item"><span class="skill-dot"></span>Dart (Flutter)</div>
+              <div class="skill-item">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="Python">
+                Python
+              </div>
+              <div class="skill-item">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="Java">
+                Java
+              </div>
+              <div class="skill-item">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="JS">
+                JavaScript / TypeScript
+              </div>
+              <div class="skill-item">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dart/dart-original.svg" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="Dart">
+                Dart (Flutter)
+              </div>
             </div>
 
             <div class="glass-sm skill-group bin-blue reveal">
               <div class="skill-group-title">Frameworks</div>
-              <div class="skill-item"><span class="skill-dot"></span>FastAPI</div>
-              <div class="skill-item"><span class="skill-dot"></span>React</div>
-              <div class="skill-item"><span class="skill-dot"></span>Node.js</div>
-              <div class="skill-item"><span class="skill-dot"></span>Flutter</div>
+              <div class="skill-item">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/fastapi/fastapi-original.svg" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="FastAPI">
+                FastAPI
+              </div>
+              <div class="skill-item">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="React">
+                React
+              </div>
+              <div class="skill-item">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="Node.js">
+                Node.js
+              </div>
+              <div class="skill-item">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-original.svg" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="Flutter">
+                Flutter
+              </div>
             </div>
 
             <div class="glass-sm skill-group bin-green reveal">
               <div class="skill-group-title">Databases</div>
-              <div class="skill-item"><span class="skill-dot"></span>MySQL</div>
-              <div class="skill-item"><span class="skill-dot"></span>Qdrant (Vector DB)</div>
-              <div class="skill-item"><span class="skill-dot"></span>Weaviate (Vector DB)</div>
-              <div class="skill-item"><span class="skill-dot"></span>ChromaDB</div>
-              <div class="skill-item"><span class="skill-dot"></span>Neo4j</div>
+              <div class="skill-item">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="MySQL">
+                MySQL
+              </div>
+              <div class="skill-item">
+                <img src="https://avatars.githubusercontent.com/u/79963867?s=200&v=4" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="Qdrant">
+                Qdrant (Vector DB)
+              </div>
+              <div class="skill-item">
+                <img src="https://avatars.githubusercontent.com/u/37254256?s=200&v=4" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="Weaviate">
+                Weaviate (Vector DB)
+              </div>
+              <div class="skill-item">
+                <img src="https://avatars.githubusercontent.com/u/108502392?s=200&v=4" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="ChromaDB">
+                ChromaDB
+              </div>
+              <div class="skill-item">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/neo4j/neo4j-original.svg" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="Neo4j">
+                Neo4j
+              </div>
             </div>
 
             <div class="glass-sm skill-group bin-gray reveal">
               <div class="skill-group-title">Tools & Infrastructure</div>
-              <div class="skill-item"><span class="skill-dot"></span>MCP</div>
-              <div class="skill-item"><span class="skill-dot"></span>AWS EC2 / Bedrock</div>
-              <div class="skill-item"><span class="skill-dot"></span>Docker</div>
-              <div class="skill-item"><span class="skill-dot"></span>Git</div>
+              <div class="skill-item">
+                <img src="https://raw.githubusercontent.com/modelcontextprotocol/docs/main/favicon.svg"
+                  style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="MCP">
+                MCP
+              </div>
+              <div class="skill-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" style="width:20px; height:12px; margin-right:6px; vertical-align:middle;" alt="AWS">
+                AWS EC2 / Bedrock
+              </div>
+              <div class="skill-item">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="Docker">
+                Docker
+              </div>
+              <div class="skill-item">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="Git">
+                Git
+              </div>
             </div>
 
             <div class="glass-sm skill-group bin-orange reveal">
               <div class="skill-group-title">Real-Time & APIs</div>
-              <div class="skill-item"><span class="skill-dot"></span>WebRTC</div>
-              <div class="skill-item"><span class="skill-dot"></span>Twilio / WhatsApp API</div>
-              <div class="skill-item"><span class="skill-dot"></span>Firebase</div>
-              <div class="skill-item"><span class="skill-dot"></span>Hugging Face Spaces</div>
-            </div>
-
-          </div>
-
-          <!-- Right column: Brick Anatomy -->
-          <div class="glass-sm brick-anatomy-card reveal">
-            <div class="anatomy-header">
-              <div class="anatomy-title">Brick Anatomy</div>
-              <p class="anatomy-subtitle">Everything I build has a solid structure. Hover over parts to inspect.</p>
-            </div>
-
-            <div class="anatomy-workspace">
-              <!-- Stylized 3D Lego Brick -->
-              <div class="anatomy-brick" id="anatomy-brick">
-                <!-- Studs (Top Connection - Soft Skills) -->
-                <div class="anatomy-part part-studs" data-part="studs">
-                  <div class="part-stud-caps">
-                    <div class="part-stud-cap"></div>
-                    <div class="part-stud-cap"></div>
-                  </div>
-                  <div class="part-indicator line-studs">
-                    <span class="indicator-dot"></span>
-                    <span class="indicator-text">The Studs (Connection: Soft Skills)</span>
-                  </div>
-                </div>
-
-                <!-- Walls (Outer Shell - Core Languages) -->
-                <div class="anatomy-part part-walls" data-part="walls">
-                  <div class="brick-body-front"></div>
-                  <div class="part-indicator line-walls">
-                    <span class="indicator-dot"></span>
-                    <span class="indicator-text">The Walls (Core: Python, JS, Java)</span>
-                  </div>
-                </div>
-
-                <!-- Under-side Tubes / Hollow Interior (Support - Frameworks) -->
-                <div class="anatomy-part part-interior" data-part="interior">
-                  <div class="brick-body-bottom">
-                    <div class="inner-tube"></div>
-                  </div>
-                  <div class="part-indicator line-interior">
-                    <span class="indicator-dot"></span>
-                    <span class="indicator-text">Hollow Interior (Frameworks: LangGraph, FastAPI)</span>
-                  </div>
-                </div>
+              <div class="skill-item">
+                <img src="https://webrtc.github.io/webrtc-org/assets/images/webrtc-logo-vert-retro-dist.svg" style="width:14px; height:16px; margin-right:8px; vertical-align:middle;" alt="WebRTC">
+                WebRTC
+              </div>
+              <div class="skill-item">
+                <img src="https://www.vectorlogo.zone/logos/twilio/twilio-icon.svg" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="Twilio">
+                Twilio / WhatsApp API
+              </div>
+              <div class="skill-item">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-plain.svg" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="Firebase">
+                Firebase
+              </div>
+              <div class="skill-item">
+                <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;" alt="Hugging Face">
+                Hugging Face Spaces
               </div>
             </div>
 
-            <!-- Dynamic readout details -->
-            <div class="anatomy-readout" id="anatomy-readout">
-              <div class="readout-title" id="readout-title-text">Interactive Analysis</div>
-              <p class="readout-text" id="readout-desc-text">Hover over any component of the brick to inspect structural
-                properties.</p>
-            </div>
           </div>
+            </div>
+
+          </div>
+
+
+
         </div>
       </div>
-    </section>
+  </div>
+  </section>
 
-    <section id="education">
-      <div class="container">
+  <section id="education">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Academic Background</div>
+        <h2 class="section-title">Education</h2>
+      </div>
+      <div class="edu-grid">
+        <div class="glass edu-card reveal">
+          <div class="edu-degree">Master of Computer Applications (MCA)</div>
+          <div class="edu-inst">TKM College of Engineering, Kollam</div>
+          <div class="edu-year">2024 – 2026</div>
+        </div>
+        <div class="glass edu-card reveal">
+          <div class="edu-degree">B.Sc. Computer Science</div>
+          <div class="edu-inst">College of Applied Sciences, Vattamkulam</div>
+          <div class="edu-year">2020 – 2023</div>
+        </div>
+      </div>
+
+      <div style="margin-top:60px">
         <div class="reveal">
-          <div class="section-label">Academic Background</div>
-          <h2 class="section-title">Education</h2>
+          <div class="section-label">Credentials</div>
+          <h2 class="section-title">Certifications</h2>
         </div>
-        <div class="edu-grid">
-          <div class="glass edu-card reveal">
-            <div class="edu-degree">Master of Computer Applications (MCA)</div>
-            <div class="edu-inst">TKM College of Engineering, Kollam</div>
-            <div class="edu-year">2024 – 2026</div>
+        <div class="certs-grid">
+
+          <div class="glass-sm cert-card reveal">
+            <div>
+              <div class="cert-name">Generative AI & AI Agents Specialist</div>
+              <div class="cert-org">IBM via Coursera</div>
+              <div class="cert-year">2026</div>
+            </div>
           </div>
-          <div class="glass edu-card reveal">
-            <div class="edu-degree">B.Sc. Computer Science</div>
-            <div class="edu-inst">College of Applied Sciences, Vattamkulam</div>
-            <div class="edu-year">2020 – 2023</div>
+
+          <div class="glass-sm cert-card reveal">
+            <div>
+              <div class="cert-name">Generative AI and AI Agents Professional</div>
+              <div class="cert-org">AWS via Coursera</div>
+              <div class="cert-year">2026</div>
+            </div>
           </div>
-        </div>
 
-        <div style="margin-top:60px">
-          <div class="reveal">
-            <div class="section-label">Credentials</div>
-            <h2 class="section-title">Certifications</h2>
+          <div class="glass-sm cert-card reveal">
+            <div>
+              <div class="cert-name">Python for Data Science & Development</div>
+              <div class="cert-org">IBM via Coursera</div>
+              <div class="cert-year">2026</div>
+            </div>
           </div>
-          <div class="certs-grid">
 
-            <div class="glass-sm cert-card reveal">
-              <div>
-                <div class="cert-name">Generative AI & AI Agents Specialist</div>
-                <div class="cert-org">IBM via Coursera</div>
-                <div class="cert-year">2026</div>
-              </div>
+          <div class="glass-sm cert-card reveal">
+            <div>
+              <div class="cert-name">Data Structures & Algorithms Design</div>
+              <div class="cert-org">NPTEL – IIT Kanpur</div>
+              <div class="cert-year">2025</div>
             </div>
-
-            <div class="glass-sm cert-card reveal">
-              <div>
-                <div class="cert-name">Generative AI and AI Agents Professional</div>
-                <div class="cert-org">AWS via Coursera</div>
-                <div class="cert-year">2026</div>
-              </div>
-            </div>
-
-            <div class="glass-sm cert-card reveal">
-              <div>
-                <div class="cert-name">Python for Data Science & Development</div>
-                <div class="cert-org">IBM via Coursera</div>
-                <div class="cert-year">2026</div>
-              </div>
-            </div>
-
-            <div class="glass-sm cert-card reveal">
-              <div>
-                <div class="cert-name">Data Structures & Algorithms Design</div>
-                <div class="cert-org">NPTEL – IIT Kanpur</div>
-                <div class="cert-year">2025</div>
-              </div>
-            </div>
-
-            <div class="glass-sm cert-card reveal">
-              <div>
-                <div class="cert-name">Python – Web Development Expert</div>
-                <div class="cert-org">NACTET</div>
-                <div class="cert-year">2024</div>
-              </div>
-            </div>
-
           </div>
+
+          <div class="glass-sm cert-card reveal">
+            <div>
+              <div class="cert-name">Python – Web Development Expert</div>
+              <div class="cert-org">NACTET</div>
+              <div class="cert-year">2024</div>
+            </div>
+          </div>
+
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="contact">
-      <div class="container">
-        <div class="glass contact-inner reveal">
-          <div class="section-label" style="text-align:center">Let's Connect</div>
-          <h2 class="contact-title">Ready to build something exceptional?</h2>
-          <p class="contact-sub">Open to AI engineer roles, research collaborations, and freelance projects. Let's talk.
-          </p>
-          <div class="contact-links">
-            <a class="contact-link" href="mailto:vishnup22102002@gmail.com">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="4" width="20" height="16" rx="2" />
-                <path d="m22 7-10 7L2 7" />
-              </svg>
-              vishnup22102002@gmail.com
-            </a>
-            <a class="contact-link" href="https://www.linkedin.com/in/vishnup22102002/" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                <rect x="2" y="9" width="4" height="12" />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
-              LinkedIn
-            </a>
-            <a class="contact-link" href="https://github.com/vishnup102002" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path
-                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-              </svg>
-              GitHub
-            </a>
-            <a class="contact-link" href="tel:+917736533119">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.27 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-              </svg>
-              +91 77365 33119
-            </a>
-          </div>
+  <section id="contact">
+    <div class="container">
+      <div class="glass contact-inner reveal">
+        <div class="section-label" style="text-align:center">Let's Connect</div>
+        <h2 class="contact-title">Ready to build something exceptional?</h2>
+        <p class="contact-sub">Open to AI engineer roles, research collaborations, and freelance projects. Let's talk.
+        </p>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:vishnup22102002@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="m22 7-10 7L2 7" />
+            </svg>
+            vishnup22102002@gmail.com
+          </a>
+          <a class="contact-link" href="https://www.linkedin.com/in/vishnup22102002/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+            LinkedIn
+          </a>
+          <a class="contact-link" href="https://github.com/vishnup102002" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+            </svg>
+            GitHub
+          </a>
+          <a class="contact-link" href="tel:+917736533119">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.27 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            +91 77365 33119
+          </a>
+        </div>
 
-          <!-- Agentic Insight Collapsible Box -->
-          <div class="agentic-insight-container reveal" style="margin-top: 32px;">
-            <button class="insight-toggle-btn" id="insight-toggle-btn">
-              <span><span class="insight-icon">🔍</span>Recruiter Mode: Run Agentic Insight</span>
-              <span class="insight-arrow" id="insight-arrow">▼</span>
-            </button>
-            <div class="insight-terminal-wrapper" id="insight-terminal-wrapper" style="display: none;">
-              <div class="insight-terminal" id="insight-terminal">
-                <div class="log-line text-blue">> Click trigger to start evaluation sequence...</div>
-              </div>
+        <!-- Agentic Insight Collapsible Box -->
+        <div class="agentic-insight-container reveal" style="margin-top: 32px;">
+          <button class="insight-toggle-btn" id="insight-toggle-btn">
+            <span><span class="insight-icon">🔍</span>Recruiter Mode: Run Agentic Insight</span>
+            <span class="insight-arrow" id="insight-arrow">▼</span>
+          </button>
+          <div class="insight-terminal-wrapper" id="insight-terminal-wrapper" style="display: none;">
+            <div class="insight-terminal" id="insight-terminal">
+              <div class="log-line text-blue">> Click trigger to start evaluation sequence...</div>
             </div>
-          </div>
-
-          <!-- Error 404 Brick-Break Easter Egg -->
-          <div class="brick-break-container reveal">
-            <div class="bb-title">System Diagnostic: 404 Brick-Break Easter Egg</div>
-            <div class="bb-stage" id="bb-stage">
-              <div class="bb-brick brick-3"></div>
-              <div class="bb-brick brick-2"></div>
-              <div class="bb-brick brick-1"></div>
-            </div>
-            <button class="bb-button" id="bb-btn">Simulate Break Stack</button>
           </div>
         </div>
-      </div>
-    </section>
 
-    <footer>
-      <p>Built with precision · Vishnu P © 2026</p>
-    </footer>
+        <!-- Error 404 Brick-Break Easter Egg -->
+        <div class="brick-break-container reveal">
+          <div class="bb-title">System Diagnostic: 404 Brick-Break Easter Egg</div>
+          <div class="bb-stage" id="bb-stage">
+            <div class="bb-brick brick-3"></div>
+            <div class="bb-brick brick-2"></div>
+            <div class="bb-brick brick-1"></div>
+          </div>
+          <button class="bb-button" id="bb-btn">Simulate Break Stack</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div
+      style="max-width: 800px; margin: 0 auto 24px auto; padding: 20px; background: rgba(15, 23, 42, 0.4); border: 2.5px solid #0f172a; border-radius: 6px; text-align: left; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);">
+      <h3
+        style="font-family: 'Space Grotesk', sans-serif; font-size: 14px; color: var(--accent); margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+        </svg>
+        System Design Principles
+      </h3>
+      <p style="font-size: 12.5px; font-weight: 400; line-height: 1.6; color: var(--text-2); margin: 0;">
+        “I design for failure: All my agentic pipelines include fallback logic (multi-tier scraping),
+        state-checkpointing for long-horizon tasks, and LLM-as-a-Judge harnesses to ensure output quality.”
+      </p>
+    </div>
+    <p>Built with precision · Vishnu P © 2026</p>
+  </footer>
 
   </div>
 
@@ -3666,7 +3744,7 @@
         { text: "> [VERDICT] Experience: 0 years (Scholastic & R&D).", class: "text-yellow", delay: 4700 },
         { text: "> [VERDICT] Skillset: High-Performance Agentic Pipelines.", class: "text-yellow", delay: 5100 },
         { text: "> [VERDICT] Strong potential for deployment. (Full-time AI Engineer)", class: "text-green", delay: 5600 },
-        { text: "> [AGENT] Action: Trigger chat setup. Click mail address above to connect.", class: "text-blue", delay: 6300 }
+        { text: "> [ACTION] <a href='mailto:vishnup22102002@gmail.com' style='color: var(--accent); font-weight: bold; text-decoration: underline;'>Contact Me</a> | <a href='assets/VISHNU.pdf' target='_blank' style='color: var(--accent); font-weight: bold; text-decoration: underline;'>View Resume PDF</a>", class: "text-green", delay: 7000, isHtml: true }
       ];
 
       insightBtn.addEventListener('click', () => {
@@ -3683,7 +3761,11 @@
               setTimeout(() => {
                 const line = document.createElement('div');
                 line.className = `log-line ${step.class}`;
-                line.textContent = step.text;
+                if (step.isHtml) {
+                  line.innerHTML = step.text;
+                } else {
+                  line.textContent = step.text;
+                }
                 insightTerminal.appendChild(line);
                 insightTerminal.scrollTop = insightTerminal.scrollHeight;
                 if (typeof playSnapSound === 'function') playSnapSound();
