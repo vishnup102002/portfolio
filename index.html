@@ -887,13 +887,68 @@
       box-shadow: none;
     }
 
-    .glass-sm {
-      background: #1e293b;
-      border: 3px solid #0f172a;
-      border-radius: 6px;
+    .glass {
+      background: var(--glass-bg);
+      border: 4px solid var(--glass-bdr);
+      border-radius: 8px;
       box-shadow:
-        0 5px 0 #0f172a,
-        inset 0 1.5px 0 rgba(255, 255, 255, 0.1);
+        0 8px 0 #0f172a,
+        inset 0 2px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    /* ── ENGINEERING MANIFESTO ── */
+    .manifesto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .manifesto-card {
+      padding: 24px;
+      position: relative;
+      overflow: visible;
+      transition:
+        transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        box-shadow 0.2s;
+    }
+
+    .manifesto-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 0 #0f172a;
+    }
+
+    .manifesto-studs {
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      display: flex;
+      gap: 8px;
+      z-index: 5;
+    }
+
+    .manifesto-studs .m-stud {
+      width: 14px;
+      height: 6px;
+      background: var(--card-accent, var(--accent));
+      border: 2.5px solid #0f172a;
+      border-bottom: none;
+      border-radius: 2px 2px 0 0;
+    }
+
+    .manifesto-card-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-1);
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+    }
+
+    .manifesto-card-desc {
+      color: var(--text-2);
+      font-size: 13.5px;
+      line-height: 1.6;
     }
 
     /* ── SECTIONS ── */
@@ -2807,6 +2862,7 @@
     <nav>
       <a class="nav-logo" href="#hero">Vishnu<span>.</span></a>
       <ul class="nav-links">
+        <li><a href="#manifesto">Manifesto</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -3007,6 +3063,53 @@
           </div>
 
           <!-- Status Line -->
+        </div>
+      </div>
+    </section>
+
+    <section id="manifesto">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">Build Ethos</div>
+          <h2 class="section-title">Engineering Manifesto</h2>
+        </div>
+        <div class="manifesto-grid">
+          <!-- Card 1: Design for Failure -->
+          <div class="glass manifesto-card reveal" style="--card-accent: var(--cta-red);">
+            <div class="manifesto-studs">
+              <div class="m-stud"></div>
+              <div class="m-stud"></div>
+            </div>
+            <h3 class="manifesto-card-title">Design for Failure</h3>
+            <p class="manifesto-card-desc">I treat production as inherently unstable. Across all my systems, I build in modular fallbacks—whether it's multi-tier scraping for agents or offline telemetry caching for mobile apps.</p>
+          </div>
+          <!-- Card 2: State-Aware Execution -->
+          <div class="glass manifesto-card reveal" style="--card-accent: var(--accent);">
+            <div class="manifesto-studs">
+              <div class="m-stud"></div>
+              <div class="m-stud"></div>
+            </div>
+            <h3 class="manifesto-card-title">State-Aware Execution</h3>
+            <p class="manifesto-card-desc">I prioritize data integrity. From maintaining session states in WhatsApp bots to tracking long-horizon search tasks, I implement checkpointing to ensure systems can recover from interrupted states.</p>
+          </div>
+          <!-- Card 3: Objective Validation -->
+          <div class="glass manifesto-card reveal" style="--card-accent: var(--accent-2);">
+            <div class="manifesto-studs">
+              <div class="m-stud"></div>
+              <div class="m-stud"></div>
+            </div>
+            <h3 class="manifesto-card-title">Objective Validation</h3>
+            <p class="manifesto-card-desc">I favor quantifiable metrics over manual testing. Whether using an LLM-as-a-Judge to score an agent's reasoning or unit tests to validate geometric algorithms in vision pipelines, I ensure my systems are verifiable.</p>
+          </div>
+          <!-- Card 4: Always Ship -->
+          <div class="glass manifesto-card reveal" style="--card-accent: var(--brick-green);">
+            <div class="manifesto-studs">
+              <div class="m-stud"></div>
+              <div class="m-stud"></div>
+            </div>
+            <h3 class="manifesto-card-title">Always Ship</h3>
+            <p class="manifesto-card-desc">My ultimate metric is deployment. I prioritize getting a functional build into the user's hands over endless polishing. I design systems to be "shippable" from day one.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -3708,43 +3811,6 @@
     </section>
 
     <footer>
-      <div style="
-            max-width: 800px;
-            margin: 0 auto 24px auto;
-            padding: 20px;
-            background: rgba(15, 23, 42, 0.4);
-            border: 2.5px solid #0f172a;
-            border-radius: 6px;
-            text-align: left;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
-          ">
-        <h3 style="
-              font-family: &quot;Space Grotesk&quot;, sans-serif;
-              font-size: 14px;
-              color: var(--accent);
-              margin-bottom: 8px;
-              display: flex;
-              align-items: center;
-              gap: 8px;
-            ">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent)">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-          </svg>
-          System Design Principles
-        </h3>
-        <p style="
-              font-size: 12.5px;
-              font-weight: 400;
-              line-height: 1.6;
-              color: var(--text-2);
-              margin: 0;
-            ">
-          “I design for failure: All my agentic pipelines include fallback
-          logic (multi-tier scraping), state-checkpointing for long-horizon
-          tasks, and LLM-as-a-Judge harnesses to ensure output quality.”
-        </p>
-      </div>
       <p>Built with precision · Vishnu P © 2026</p>
     </footer>
   </div>
