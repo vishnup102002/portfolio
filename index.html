@@ -29,42 +29,54 @@
     }
 
     :root {
-      --bg-deep: #060b13;
-      /* Deep Moody Navy base */
-      --bg-mid: #0b1220;
-      --orb-1: #121d3a;
-      /* Moody dark blue orb */
-      --orb-2: #2b0e40;
-      /* Moody dark purple orb */
-      --orb-3: #30160a;
-      /* Moody dark rust orb */
-      --accent: #facc15;
-      /* Bright Lego Yellow */
-      --accent-2: #ca8a04;
-      /* Golden Lego Yellow */
-      --cta-red: #e11d48;
-      /* Classic Lego Red for CTAs */
-      --cta-red-hover: #be123c;
-      --brick-blue: #1e293b;
-      /* Solid brick blue */
-      --brick-red: #ef4444;
-      /* Solid brick red */
-      --brick-yellow: #facc15;
-      --brick-green: #22c55e;
-      --brick-orange: #f97316;
-      --brick-gray: #475569;
-      --glass-bg: #1e293b;
-      --glass-bdr: #0f172a;
+      --bg-deep: #050505;
+      /* Deep Skunkworks Black */
+      --bg-mid: #0a0a0a;
+      --orb-1: rgba(16, 185, 129, 0.09);
+      /* Skunkworks green orb */
+      --orb-2: rgba(56, 189, 248, 0.09);
+      /* Skunkworks electric blue orb */
+      --orb-3: rgba(244, 63, 94, 0.07);
+      /* Skunkworks safety alert orb */
+      --accent: #10b981;
+      /* Terminal Green */
+      --accent-2: #38bdf8;
+      /* Electric Blue */
+      --cta-red: #f43f5e;
+      /* Safety Alert Red */
+      --cta-red-hover: #e11d48;
+      --brick-blue: #0ea5e9;
+      --brick-red: #f43f5e;
+      --brick-yellow: #10b981;
+      --brick-green: #10b981;
+      --brick-orange: #f59e0b;
+      --brick-gray: #334155;
+      --glass-bg: rgba(10, 10, 10, 0.88);
+      --glass-bdr: rgba(16, 185, 129, 0.25);
       --text-1: #f8fafc;
-      /* White for text */
-      --text-2: #cbd5e1;
+      /* White text */
+      --text-2: #94a3b8;
       /* Slate text */
       --text-3: #64748b;
       /* Muted text */
-      --tag-bg: rgba(250, 204, 21, 0.1);
-      --tag-bdr: rgba(250, 204, 21, 0.35);
-      --tag-rnd-bg: rgba(225, 29, 72, 0.1);
-      --tag-rnd-bdr: rgba(225, 29, 72, 0.35);
+      --tag-bg: rgba(16, 185, 129, 0.08);
+      --tag-bdr: rgba(16, 185, 129, 0.3);
+      --tag-rnd-bg: rgba(244, 63, 94, 0.12);
+      --tag-rnd-bdr: rgba(244, 63, 94, 0.4);
+    }
+
+    /* Dense hardware log typography */
+    code,
+    pre,
+    .tag,
+    .exp-period,
+    .highlight-metric,
+    .status-grid,
+    .cmd-tile,
+    .health-terminal,
+    .insight-terminal,
+    .neural-terminal {
+      letter-spacing: -0.025em;
     }
 
     html {
@@ -103,6 +115,7 @@
       opacity: 0.22;
       pointer-events: none;
       z-index: 0;
+      will-change: transform;
     }
 
     .orb-1 {
@@ -275,58 +288,223 @@
       box-shadow: none;
     }
 
-    /* Brick-morphic Cards */
+    /* Modular Server Modules (Small) */
     .glass-sm {
-      background: #1e293b;
-      border: 3px solid #0f172a;
-      border-radius: 6px;
-      box-shadow:
-        0 5px 0 #0f172a,
-        inset 0 1.5px 0 rgba(255, 255, 255, 0.1);
-    }
-
-    /* ── CURSOR TRACKER ── */
-    .stud-tracker {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      background: var(--accent);
-      border: 1.5px solid #0f172a;
+      background-color: var(--glass-bg);
+      background-image:
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.015) 0, rgba(255, 255, 255, 0.015) 1px, transparent 0, transparent 4px),
+        repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.015) 0, rgba(255, 255, 255, 0.015) 1px, transparent 0, transparent 4px);
+      background-size: 6px 6px;
+      border: 1px solid var(--glass-bdr);
       border-radius: 2px;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      box-shadow: 1px 1px 0 #0f172a;
-      transition:
-        width 0.15s,
-        height 0.15s,
-        background-color 0.15s,
-        box-shadow 0.15s,
-        border-radius 0.15s;
-    }
-
-    .stud-tracker.snap {
-      width: 16px;
-      height: 16px;
-      background: var(--cta-red);
-      border-radius: 4px;
-      border-width: 2.5px;
       box-shadow:
-        0 3px 0 #0f172a,
-        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        inset 0 0 8px rgba(16, 185, 129, 0.1),
+        0 4px 16px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
     }
 
-    .stud-tracker.snap::before {
-      content: "";
+    /* Sound Toggle Button */
+    .nav-sound-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-bdr);
+      border-radius: 4px;
+      color: var(--text-2);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      padding: 6px 12px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      transition: all 0.2s;
+    }
+
+    .nav-sound-btn:hover {
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .nav-sound-btn.enabled {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Scroll Progress Bar (Brick-Stud Segmented) */
+    .scroll-progress-bar {
+      position: fixed;
+      top: 64px;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: repeating-linear-gradient(90deg,
+          var(--accent) 0,
+          var(--accent) 6px,
+          rgba(0, 0, 0, 0.4) 6px,
+          rgba(0, 0, 0, 0.4) 8px);
+      box-shadow: 0 0 8px var(--accent);
+      z-index: 999;
+      pointer-events: none;
+      will-change: width;
+    }
+
+
+    /* Project Demo Media Slot */
+    .proj-media {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 4px;
+      border: 1px solid var(--glass-bdr);
+      background: rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      margin-top: 12px;
+      margin-bottom: 16px;
+      cursor: zoom-in;
+      position: relative;
+    }
+
+    .proj-media img,
+    .proj-media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .proj-media:hover img {
+      transform: scale(1.02);
+    }
+
+    .proj-media::after {
+      content: "🔍 Click to expand";
       position: absolute;
-      top: -5px;
-      left: 2px;
-      width: 6px;
-      height: 3px;
-      background: var(--cta-red);
-      border: 1px solid #0f172a;
-      border-bottom: none;
-      border-radius: 1px 1px 0 0;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(5, 5, 5, 0.82);
+      border: 1px solid var(--glass-bdr);
+      color: var(--text-2);
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 3px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+
+    .proj-media:hover::after {
+      opacity: 1;
+    }
+
+    /* ── MEDIA LIGHTBOX MODAL ── */
+    .media-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .media-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .media-modal-backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(4, 7, 13, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .media-modal-content {
+      position: relative;
+      z-index: 1;
+      background: var(--bg-mid);
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      box-shadow:
+        inset 0 0 16px rgba(16, 185, 129, 0.2),
+        0 0 32px rgba(0, 0, 0, 0.9);
+      max-width: 92vw;
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      transform: scale(0.92) translateY(12px);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+    }
+
+    .media-modal.active .media-modal-content {
+      transform: scale(1) translateY(0);
+    }
+
+    .media-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid var(--glass-bdr);
+    }
+
+    .media-modal-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .media-modal-close {
+      background: transparent;
+      border: 1px solid var(--glass-bdr);
+      color: var(--text-2);
+      font-size: 18px;
+      line-height: 1;
+      width: 28px;
+      height: 28px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .media-modal-close:hover {
+      border-color: var(--cta-red);
+      color: var(--cta-red);
+      background: rgba(244, 63, 94, 0.1);
+    }
+
+    .media-modal-body {
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: auto;
+      max-height: calc(88vh - 48px);
+    }
+
+    .media-modal-body img {
+      max-width: 100%;
+      max-height: calc(85vh - 60px);
+      object-fit: contain;
+      border-radius: 2px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
     }
 
     /* ── INTERACTIVE 3D BRICK ── */
@@ -887,13 +1065,102 @@
       box-shadow: none;
     }
 
+    /* Modular Server Modules */
     .glass {
-      background: var(--glass-bg);
-      border: 4px solid var(--glass-bdr);
-      border-radius: 8px;
+      background-color: var(--glass-bg);
+      background-image:
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.015) 0, rgba(255, 255, 255, 0.015) 1px, transparent 0, transparent 4px),
+        repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.015) 0, rgba(255, 255, 255, 0.015) 1px, transparent 0, transparent 4px);
+      background-size: 6px 6px;
+      border: 1px solid var(--glass-bdr);
+      border-radius: 2px;
       box-shadow:
-        0 8px 0 #0f172a,
-        inset 0 2px 0 rgba(255, 255, 255, 0.15);
+        inset 0 0 10px rgba(16, 185, 129, 0.12),
+        0 8px 24px rgba(0, 0, 0, 0.7);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Scoped Diagnostic Scan Light Streak Micro-Interactions */
+    .proj-card::after,
+    .exp-card::after,
+    .manifesto-card::after,
+    .journey-block .jb-front::after,
+    .skill-item::after,
+    .edu-card::after,
+    .cert-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -150%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg,
+          transparent 0%,
+          rgba(255, 255, 255, 0.04) 30%,
+          var(--scan-color, var(--card-accent, var(--exp-cap, var(--accent)))) 50%,
+          transparent 100%);
+      transform: skewX(-20deg);
+      pointer-events: none;
+      will-change: transform;
+      z-index: 25;
+      opacity: 0;
+    }
+
+    .manifesto-card::after {
+      background: linear-gradient(90deg, transparent, var(--card-accent, var(--accent)), transparent);
+    }
+
+    /* Disable all hover streaks and transforms */
+    .glass:hover::after,
+    .glass-sm:hover::after,
+    .manifesto-card:hover::after,
+    .skill-group:hover::after,
+    .proj-card:hover::after,
+    .exp-card:hover::after,
+    .edu-card:hover::after,
+    .cert-card:hover::after,
+    .skill-item:hover::after {
+      animation: none !important;
+      display: none !important;
+    }
+
+    /* Remove hover lifts/shifts for cold, precise alignment */
+    .manifesto-card:hover,
+    .proj-card:hover,
+    .exp-card:hover,
+    .edu-card:hover,
+    .cert-card:hover,
+    .skill-item:hover {
+      transform: none !important;
+      box-shadow: inset 0 0 8px rgba(16, 185, 129, 0.1), 0 4px 16px rgba(0, 0, 0, 0.6) !important;
+    }
+
+    /* State-Based Highlighting (The "Active / Inspected" State) */
+    .glass.active,
+    .glass-sm.active,
+    .proj-card.active,
+    .exp-card.active,
+    .manifesto-card.active,
+    .edu-card.active,
+    .cert-card.active,
+    .skill-item.active,
+    .journey-block.active {
+      border-color: var(--accent) !important;
+      box-shadow: inset 0 0 12px rgba(16, 185, 129, 0.25), 0 0 16px rgba(16, 185, 129, 0.15) !important;
+      position: relative;
+    }
+
+    .skill-item.active::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 6px var(--accent);
+      margin-right: 4px;
     }
 
     /* ── ENGINEERING MANIFESTO ── */
@@ -1329,37 +1596,61 @@
       max-width: 520px;
     }
 
-    /* ── EXPERIENCE TIMELINE (My Build History) ── */
+    /* ── EXPERIENCE TIMELINE (Neural Data Bus) ── */
     .timeline {
       position: relative;
       padding-left: 48px;
       margin-top: 40px;
+      overflow: hidden;
     }
 
     .timeline::before {
       content: "";
       position: absolute;
-      left: 12px;
+      left: 14px;
       top: 0;
       bottom: 0;
-      width: 12px;
-      background: #475569;
-      border: 3.5px solid #0f172a;
+      width: 4px;
+      background: linear-gradient(180deg,
+          rgba(16, 185, 129, 0.6) 0%,
+          rgba(56, 189, 248, 0.6) 50%,
+          rgba(244, 63, 94, 0.6) 100%);
+      border-radius: 2px;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.25);
+    }
+
+    /* Neural Flow Data Bus Signal Packet - Scroll Synced Active Signal */
+    .timeline::after {
+      content: "";
+      position: absolute;
+      left: 11px;
+      top: 0;
+      width: 10px;
+      height: 36px;
+      background: linear-gradient(180deg,
+          transparent 0%,
+          var(--accent) 30%,
+          #ffffff 50%,
+          var(--accent-2) 70%,
+          transparent 100%);
       border-radius: 4px;
-      box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 12px var(--accent), 0 0 24px var(--accent-2);
+      transform: translateY(var(--signal-packet-y, 36px));
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform;
+      z-index: 5;
     }
 
     .timeline-stud {
       position: absolute;
       left: -43px;
-      /* Align precisely on the line */
       top: 36px;
-      width: 18px;
-      height: 18px;
+      width: 14px;
+      height: 14px;
       background: var(--accent);
-      border: 3px solid #0f172a;
-      border-radius: 50%;
-      box-shadow: 0 2px 0 #0f172a;
+      border: 2px solid #050505;
+      border-radius: 2px;
+      box-shadow: 0 0 8px var(--accent);
       z-index: 10;
     }
 
@@ -1367,35 +1658,19 @@
       padding: 36px;
       margin-bottom: 30px;
       position: relative;
-      overflow: visible;
     }
 
     .exp-card::before {
       content: "";
       position: absolute;
-      top: -12px;
-      left: 30px;
-      width: 80px;
-      height: 8px;
-      background: var(--exp-cap, var(--cta-red));
-      border: 3px solid #0f172a;
-      border-bottom: none;
-      border-radius: 3px 3px 0 0;
-      z-index: 2;
-    }
-
-    .exp-card::after {
-      content: "";
-      position: absolute;
-      top: -6px;
-      left: 45px;
-      width: 50px;
-      height: 4px;
-      background: var(--exp-subcap, var(--accent));
-      border: 2px solid #0f172a;
-      border-bottom: none;
+      top: 0;
+      left: 0;
+      width: 48px;
+      height: 3px;
+      background: var(--exp-cap, var(--accent));
+      box-shadow: 0 0 8px var(--exp-cap, var(--accent));
       border-radius: 2px 2px 0 0;
-      z-index: 1;
+      z-index: 2;
     }
 
     .exp-meta {
@@ -1480,38 +1755,20 @@
       display: flex;
       flex-direction: column;
       position: relative;
-      overflow: visible;
+      overflow: hidden;
+      border-radius: 2px;
       transition:
-        transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-        box-shadow 0.2s;
+        transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.25s;
     }
 
     .proj-card:hover {
-      transform: translateY(-8px) translateZ(10px);
-      box-shadow: 0 16px 0 #0f172a;
-    }
-
-    /* small stud popping out top-right on hover */
-    .proj-card::after {
-      content: "";
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      width: 14px;
-      height: 6px;
-      background: var(--accent);
-      border: 2px solid #0f172a;
-      border-radius: 2px 2px 0 0;
-      opacity: 0;
-      transform: translateY(-10px) scale(0.5);
-      transition:
-        transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-        opacity 0.2s;
-    }
-
-    .proj-card:hover::after {
-      opacity: 1;
-      transform: translateY(0) scale(1);
+      transform: translateY(-5px);
+      box-shadow:
+        inset 0 0 14px rgba(16, 185, 129, 0.2),
+        0 12px 32px rgba(0, 0, 0, 0.85);
+      border-color: var(--accent);
     }
 
     .proj-header {
@@ -1623,6 +1880,7 @@
     }
 
     .skill-group.bin-red {
+      --scan-color: var(--cta-red);
       background: #851c1c;
     }
 
@@ -1631,6 +1889,7 @@
     }
 
     .skill-group.bin-yellow {
+      --scan-color: var(--accent);
       background: #714e06;
     }
 
@@ -1639,6 +1898,7 @@
     }
 
     .skill-group.bin-blue {
+      --scan-color: var(--accent-2);
       background: #1a365d;
     }
 
@@ -1647,6 +1907,7 @@
     }
 
     .skill-group.bin-green {
+      --scan-color: var(--accent);
       background: #064e3b;
     }
 
@@ -1655,6 +1916,7 @@
     }
 
     .skill-group.bin-gray {
+      --scan-color: var(--text-2);
       background: #334155;
     }
 
@@ -1663,6 +1925,7 @@
     }
 
     .skill-group.bin-orange {
+      --scan-color: #f97316;
       background: #7c2d12;
     }
 
@@ -1736,34 +1999,13 @@
       align-items: flex-start;
       gap: 16px;
       position: relative;
-      overflow: visible;
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
 
-    .cert-card::before {
-      content: "";
-      position: absolute;
-      top: -8px;
-      left: 20px;
-      width: 40px;
-      height: 5px;
-      background: var(--cta-red);
-      border: 2px solid #0f172a;
-      border-bottom: none;
-      border-radius: 2px 2px 0 0;
-    }
-
-    .cert-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text-1);
-      margin-bottom: 4px;
-      line-height: 1.35;
-    }
-
-    .cert-org {
-      font-size: 12px;
-      color: var(--accent);
-      font-weight: 700;
+    .cert-card:hover {
+      border-color: var(--accent);
+      box-shadow: inset 0 0 10px rgba(16, 185, 129, 0.1);
     }
 
     /* ── EDUCATION ── */
@@ -1777,7 +2019,13 @@
     .edu-card {
       padding: 28px;
       position: relative;
-      overflow: visible;
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .edu-card:hover {
+      border-color: var(--accent);
+      box-shadow: inset 0 0 10px rgba(16, 185, 129, 0.1);
     }
 
     .edu-card::before {
@@ -1917,13 +2165,19 @@
       font-weight: 700;
     }
 
-    /* ── SNAP-IN SCROLL ANIMATIONS ── */
+    /* ── SNAP-IN SCROLL ANIMATIONS (Brick Snap) ── */
     .reveal {
       opacity: 0;
-      transform: translateY(-40px);
+      transform: translateY(-20px);
       transition:
-        opacity 0.5s cubic-bezier(0.25, 1.4, 0.5, 1.1),
-        transform 0.5s cubic-bezier(0.25, 1.4, 0.5, 1.1);
+        opacity 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+        transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+      will-change: transform, opacity;
+    }
+
+    .proj-card.reveal,
+    .exp-card.reveal {
+      transform: translateY(-16px);
     }
 
     .reveal.visible {
@@ -2444,232 +2698,9 @@
       border-radius: 50%;
     }
 
-    /* ── SKILLS BRICK ANATOMY LAYOUT ── */
     .skills-layout-wrapper {
       display: block;
       margin-top: 32px;
-    }
-
-    .brick-anatomy-card {
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border: 2px solid #0f172a;
-      box-shadow: 0 4px 0 #0f172a;
-      min-height: 420px;
-    }
-
-    .anatomy-header {
-      width: 100%;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .anatomy-title {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 16px;
-      font-weight: 800;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .anatomy-subtitle {
-      font-size: 11px;
-      color: var(--text-3);
-      margin-top: 4px;
-      line-height: 1.3;
-    }
-
-    .anatomy-workspace {
-      position: relative;
-      width: 100%;
-      height: 180px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      perspective: 800px;
-    }
-
-    .anatomy-brick {
-      position: relative;
-      width: 120px;
-      height: 80px;
-      transform-style: preserve-3d;
-      transform: rotateX(25deg) rotateY(-35deg);
-      transition: transform 0.6s ease;
-    }
-
-    .anatomy-brick:hover {
-      transform: rotateX(30deg) rotateY(-20deg) scale(1.05);
-    }
-
-    .anatomy-part {
-      position: absolute;
-      width: 100%;
-      cursor: pointer;
-      transition: filter 0.3s;
-    }
-
-    .part-studs {
-      top: -16px;
-      left: 0;
-      height: 16px;
-      z-index: 10;
-    }
-
-    .part-stud-caps {
-      display: flex;
-      justify-content: space-around;
-      padding: 0 16px;
-    }
-
-    .part-stud-cap {
-      width: 24px;
-      height: 14px;
-      background: var(--accent);
-      border: 2.5px solid #0f172a;
-      border-radius: 50%;
-      box-shadow:
-        inset 0 2px 0 rgba(255, 255, 255, 0.4),
-        0 2px 0 #0f172a;
-      transition: background 0.3s;
-    }
-
-    .part-walls {
-      top: 0;
-      left: 0;
-      height: 50px;
-      z-index: 5;
-    }
-
-    .brick-body-front {
-      width: 120px;
-      height: 50px;
-      background: var(--accent);
-      border: 2.5px solid #0f172a;
-      border-radius: 4px;
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.3),
-        0 4px 0 #0f172a;
-      transition: background 0.3s;
-    }
-
-    .part-interior {
-      bottom: -15px;
-      left: 0;
-      height: 20px;
-      z-index: 2;
-    }
-
-    .brick-body-bottom {
-      width: 120px;
-      height: 16px;
-      background: #ca8a04;
-      border: 2.5px solid #0f172a;
-      border-top: none;
-      border-radius: 0 0 4px 4px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .inner-tube {
-      width: 16px;
-      height: 12px;
-      border: 2px solid #0f172a;
-      border-radius: 50%;
-      background: #854d0e;
-    }
-
-    .anatomy-part:hover .part-stud-cap {
-      background: #fef08a !important;
-      filter: drop-shadow(0 0 8px var(--accent));
-    }
-
-    .anatomy-part:hover .brick-body-front {
-      background: #fef08a !important;
-      filter: drop-shadow(0 0 8px var(--accent));
-    }
-
-    .anatomy-part:hover .brick-body-bottom,
-    .anatomy-part:hover .inner-tube {
-      background: #fef08a !important;
-      filter: drop-shadow(0 0 8px var(--accent));
-    }
-
-    .part-indicator {
-      position: absolute;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      pointer-events: none;
-      white-space: nowrap;
-      opacity: 0.15;
-      transition:
-        opacity 0.3s,
-        transform 0.3s;
-    }
-
-    .anatomy-part:hover .part-indicator {
-      opacity: 1;
-      transform: translateX(5px);
-    }
-
-    .line-studs {
-      top: -12px;
-      left: 130px;
-    }
-
-    .line-walls {
-      top: 15px;
-      left: 130px;
-    }
-
-    .line-interior {
-      bottom: -6px;
-      left: 130px;
-    }
-
-    .indicator-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--accent);
-      border-radius: 50%;
-      box-shadow: 0 0 6px var(--accent);
-    }
-
-    .indicator-text {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    .anatomy-readout {
-      width: 100%;
-      background: rgba(5, 8, 16, 0.8);
-      border: 2px solid #0f172a;
-      border-radius: 6px;
-      padding: 12px 14px;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
-      margin-top: auto;
-    }
-
-    .readout-title {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 12px;
-      font-weight: 800;
-      color: var(--accent);
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .readout-text {
-      font-size: 11px;
-      color: var(--text-2);
-      line-height: 1.4;
     }
 
     @media (max-width: 480px) {
@@ -2829,6 +2860,12 @@
       overflow-y: auto;
     }
 
+    .log-line.text-muted {
+      color: var(--text-3, #64748b) !important;
+      font-style: italic;
+      margin-bottom: 4px;
+    }
+
     @keyframes fill-pulse {
       from {
         filter: brightness(0.9) drop-shadow(0 0 2px var(--accent));
@@ -2850,8 +2887,6 @@
 </head>
 
 <body>
-  <div class="stud-tracker" id="stud-tracker"></div>
-
   <div class="scene"></div>
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
@@ -2868,8 +2903,20 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#education">Education</a></li>
       </ul>
-      <a class="nav-cta" href="mailto:vishnup22102002@gmail.com">Get in touch →</a>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button id="sound-toggle-btn" class="nav-sound-btn" title="Toggle audio feedback">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            style="width: 14px; height: 14px; vertical-align: middle; margin-right: 4px;">
+            <path d="M11 5L6 9H2v6h4l5 4V5z" />
+            <path class="sound-wave" d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"
+              style="display: none;" />
+          </svg>
+          <span id="sound-toggle-text">Sound: Off</span>
+        </button>
+        <a class="nav-cta" href="mailto:vishnup22102002@gmail.com">Get in touch →</a>
+      </div>
     </nav>
+    <div id="scroll-progress" class="scroll-progress-bar"></div>
 
     <section id="hero">
       <div class="hero-inner">
@@ -3081,7 +3128,9 @@
               <div class="m-stud"></div>
             </div>
             <h3 class="manifesto-card-title">Design for Failure</h3>
-            <p class="manifesto-card-desc">I treat production as inherently unstable. Across all my systems, I build in modular fallbacks—whether it's multi-tier scraping for agents or offline telemetry caching for mobile apps.</p>
+            <p class="manifesto-card-desc">I treat production as inherently unstable. Across all my systems, I build in
+              modular fallbacks—whether it's multi-tier scraping for agents or offline telemetry caching for mobile
+              apps.</p>
           </div>
           <!-- Card 2: State-Aware Execution -->
           <div class="glass manifesto-card reveal" style="--card-accent: var(--accent);">
@@ -3090,7 +3139,9 @@
               <div class="m-stud"></div>
             </div>
             <h3 class="manifesto-card-title">State-Aware Execution</h3>
-            <p class="manifesto-card-desc">I prioritize data integrity. From maintaining session states in WhatsApp bots to tracking long-horizon search tasks, I implement checkpointing to ensure systems can recover from interrupted states.</p>
+            <p class="manifesto-card-desc">I prioritize data integrity. From maintaining session states in WhatsApp bots
+              to tracking long-horizon search tasks, I implement checkpointing to ensure systems can recover from
+              interrupted states.</p>
           </div>
           <!-- Card 3: Objective Validation -->
           <div class="glass manifesto-card reveal" style="--card-accent: var(--accent-2);">
@@ -3099,7 +3150,9 @@
               <div class="m-stud"></div>
             </div>
             <h3 class="manifesto-card-title">Objective Validation</h3>
-            <p class="manifesto-card-desc">I favor quantifiable metrics over manual testing. Whether using an LLM-as-a-Judge to score an agent's reasoning or unit tests to validate geometric algorithms in vision pipelines, I ensure my systems are verifiable.</p>
+            <p class="manifesto-card-desc">I favor quantifiable metrics over manual testing. Whether using an
+              LLM-as-a-Judge to score an agent's reasoning or unit tests to validate geometric algorithms in vision
+              pipelines, I ensure my systems are verifiable.</p>
           </div>
           <!-- Card 4: Always Ship -->
           <div class="glass manifesto-card reveal" style="--card-accent: var(--brick-green);">
@@ -3108,7 +3161,8 @@
               <div class="m-stud"></div>
             </div>
             <h3 class="manifesto-card-title">Always Ship</h3>
-            <p class="manifesto-card-desc">My ultimate metric is deployment. I prioritize getting a functional build into the user's hands over endless polishing. I design systems to be "shippable" from day one.</p>
+            <p class="manifesto-card-desc">My ultimate metric is deployment. I prioritize getting a functional build
+              into the user's hands over endless polishing. I design systems to be "shippable" from day one.</p>
           </div>
         </div>
       </div>
@@ -3240,6 +3294,10 @@
               <div class="proj-name">LegalMind</div>
               <span class="tag tag-rnd">In progress</span>
             </div>
+            <div class="proj-media">
+              <img src="assets/demos/legalmind.gif" alt="LegalMind demo" loading="lazy"
+                onerror="this.parentNode.style.display='none';" />
+            </div>
             <div class="proj-desc">
               Agentic GraphRAG WhatsApp Bot acting as an Asymmetrical Justice
               Engine. Translates colloquial regional voice notes into
@@ -3271,6 +3329,10 @@
           <div class="glass proj-card reveal">
             <div class="proj-header">
               <div class="proj-name">Career-Pilot</div>
+            </div>
+            <div class="proj-media">
+              <img src="assets/demos/career-pilot.gif" alt="Career-Pilot demo" loading="lazy"
+                onerror="this.parentNode.style.display='none';" />
             </div>
             <div class="proj-desc">
               Autonomous AI job-hunting agent with stateful multi-agent
@@ -3310,6 +3372,10 @@
             <div class="proj-header">
               <div class="proj-name">GestureLearn</div>
             </div>
+            <div class="proj-media">
+              <img src="assets/demos/gesturelearn.gif" alt="GestureLearn demo" loading="lazy"
+                onerror="this.parentNode.style.display='none';" />
+            </div>
             <div class="proj-desc">
               Collaborative room workspace using WebRTC media streaming and
               low-latency Socket.io signaling. Browser-based state machine via
@@ -3336,6 +3402,10 @@
           <div class="glass proj-card reveal">
             <div class="proj-header">
               <div class="proj-name">Kadal Aayus</div>
+            </div>
+            <div class="proj-media">
+              <img src="assets/demos/kadal-aayus.gif" alt="Kadal Aayus demo" loading="lazy"
+                onerror="this.parentNode.style.display='none';" />
             </div>
             <div class="proj-desc">
               Cross-platform sea safety application with Firebase telemetry
@@ -3406,7 +3476,7 @@
                   font-weight: 700;
                   border-radius: 4px;
                   box-shadow: 0 2px 0 #0f172a;
-                ">GraphRAG / Neo4j Specialist</span>
+                ">Advanced Rag Pipelines</span>
           </div>
           <div class="skills-grid">
             <div class="glass-sm skill-group bin-red reveal">
@@ -3702,6 +3772,26 @@
             <div class="glass-sm cert-card reveal">
               <div>
                 <div class="cert-name">
+                  Fundamentals of AI Agents Using RAG and LangChain
+                </div>
+                <div class="cert-org">IBM via Coursera</div>
+                <div class="cert-year">2026</div>
+              </div>
+            </div>
+
+            <div class="glass-sm cert-card reveal">
+              <div>
+                <div class="cert-name">
+                  Model Context Protocol
+                </div>
+                <div class="cert-org">Anthropic Education</div>
+                <div class="cert-year">2026</div>
+              </div>
+            </div>
+
+            <div class="glass-sm cert-card reveal">
+              <div>
+                <div class="cert-name">
                   Python for Data Science & Development
                 </div>
                 <div class="cert-org">IBM via Coursera</div>
@@ -3779,8 +3869,7 @@
           <!-- Agentic Insight Collapsible Box -->
           <div class="agentic-insight-container reveal" style="margin-top: 32px">
             <button class="insight-toggle-btn" id="insight-toggle-btn">
-              <span><span class="insight-icon">🔍</span>Recruiter Mode: Run
-                Agentic Insight</span>
+              <span><span class="insight-icon">🔍</span>Narrated Trace: How I'd Summarize This Profile</span>
               <span class="insight-arrow" id="insight-arrow">▼</span>
             </button>
             <div class="insight-terminal-wrapper" id="insight-terminal-wrapper" style="display: none">
@@ -3815,6 +3904,20 @@
     </footer>
   </div>
 
+  <!-- Media Lightbox Modal -->
+  <div class="media-modal" id="media-modal">
+    <div class="media-modal-backdrop" id="media-modal-backdrop"></div>
+    <div class="media-modal-content">
+      <div class="media-modal-header">
+        <span class="media-modal-title" id="media-modal-title">Diagnostic View // Project Demo</span>
+        <button class="media-modal-close" id="media-modal-close" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="media-modal-body">
+        <img id="media-modal-img" src="" alt="Demo Enlarged View" />
+      </div>
+    </div>
+  </div>
+
   <script>
     const isTouchDevice =
       "ontouchstart" in window || navigator.maxTouchPoints > 0;
@@ -3822,13 +3925,16 @@
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    // Intersection observer for reveal animations
+    // Intersection observer for reveal animations (Brick Snap)
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry, i) => {
           if (entry.isIntersecting) {
             setTimeout(() => {
               entry.target.classList.add("visible");
+              if (isSoundEnabled && typeof playSnapSound === "function") {
+                playSnapSound();
+              }
             }, i * 60);
             observer.unobserve(entry.target);
           }
@@ -3859,6 +3965,20 @@
       { passive: true },
     );
 
+    // Scroll progress bar indicator
+    const progressBar = document.getElementById("scroll-progress");
+    if (progressBar) {
+      const updateScrollProgress = () => {
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (totalHeight > 0) {
+          const progress = (window.scrollY / totalHeight) * 100;
+          progressBar.style.width = `${progress}%`;
+        }
+      };
+      window.addEventListener("scroll", updateScrollProgress, { passive: true });
+      updateScrollProgress();
+    }
+
     // Interactive 3D CSS Lego Brick Mouse Move Handler
     const brickScene = document.getElementById("interactive-brick-scene");
     const brickWrapper = document.getElementById("interactive-brick");
@@ -3887,71 +4007,28 @@
       });
     }
 
-    // Cursor Stud Tracker Snapping and Movement
-    const tracker = document.getElementById("stud-tracker");
-    if (tracker) {
-      if (prefersReducedMotion || isTouchDevice) {
-        tracker.style.display = "none";
-      } else {
-        let mouseX = 0,
-          mouseY = 0;
-        let targetX = 0,
-          targetY = 0;
-        let currentX = 0,
-          currentY = 0;
-        let isSnapped = false;
-        let snapTarget = null;
-
-        window.addEventListener("mousemove", (e) => {
-          mouseX = e.clientX;
-          mouseY = e.clientY;
-        });
-
-        function updateTracker() {
-          if (isSnapped && snapTarget) {
-            const rect = snapTarget.getBoundingClientRect();
-            // Lock to the top-right corner of the hovered element, offset slightly
-            targetX = rect.right - 6;
-            targetY = rect.top + 6;
-          } else {
-            targetX = mouseX;
-            targetY = mouseY;
-          }
-
-          const speed = isSnapped ? 0.35 : 0.2;
-          currentX += (targetX - currentX) * speed;
-          currentY += (targetY - currentY) * speed;
-
-          tracker.style.left = `${currentX}px`;
-          tracker.style.top = `${currentY}px`;
-
-          requestAnimationFrame(updateTracker);
-        }
-        requestAnimationFrame(updateTracker);
-
-        // Bind snapping classes on hover
-        const snappers = document.querySelectorAll(
-          "a, button, .proj-card, .btn-primary, .btn-outline, .contact-link, .nav-cta, .bb-button",
-        );
-        snappers.forEach((el) => {
-          el.addEventListener("mouseenter", () => {
-            isSnapped = true;
-            snapTarget = el;
-            tracker.classList.add("snap");
-          });
-          el.addEventListener("mouseleave", () => {
-            isSnapped = false;
-            snapTarget = null;
-            tracker.classList.remove("snap");
-          });
-        });
-      }
-    }
-
-    // Web Audio click/snap sound synthesizer (tactile click feedback)
+    // Web Audio click/snap sound synthesizer (tactile click feedback - default OFF)
+    let isSoundEnabled = false;
     let sharedAudioCtx = null;
 
+    const soundBtn = document.getElementById("sound-toggle-btn");
+    const soundText = document.getElementById("sound-toggle-text");
+    const soundWave = document.querySelector(".sound-wave");
+
+    if (soundBtn) {
+      soundBtn.addEventListener("click", () => {
+        isSoundEnabled = !isSoundEnabled;
+        if (soundText) soundText.textContent = `Sound: ${isSoundEnabled ? "On" : "Off"}`;
+        if (soundWave) soundWave.style.display = isSoundEnabled ? "inline" : "none";
+        soundBtn.classList.toggle("enabled", isSoundEnabled);
+        if (isSoundEnabled) {
+          playSnapSound();
+        }
+      });
+    }
+
     function playSnapSound() {
+      if (!isSoundEnabled) return;
       try {
         if (!sharedAudioCtx) {
           const AudioContextClass =
@@ -4113,91 +4190,181 @@
       }
       // Start dropping blocks on load
       dropNextBlock(0);
-
-      // Journey Blocks Hover Tagline updates
-      const brickTaglines = {
-        1: "B.Sc. CS: Survived academic structures & laid OOP foundation.",
-        2: "MCA TKM College: Scaled system architectures & graph nodes.",
-        3: "Bluecast Intern: Shipped real agentic DXF cascades to production.",
-        4: "Agentic AI Engineer: Currently building pipelines that reason.",
-      };
-
-      const brickColors = {
-        1: "#94a3b8",
-        2: "#3b82f6",
-        3: "var(--cta-red)",
-        4: "var(--accent)",
-      };
-
-      journeyBlocks.forEach((block) => {
-        block.addEventListener("mouseenter", () => {
-          const detailText = document.getElementById("status-details-text");
-          const statusCard = document.getElementById("status-module-card");
-          const level = block.getAttribute("data-level");
-          if (
-            brickTaglines[level] &&
-            detailText &&
-            statusCard &&
-            !statusCard.classList.contains("system-error")
-          ) {
-            detailText.textContent = brickTaglines[level];
-            detailText.style.color = brickColors[level] || "var(--accent)";
-            if (typeof playSnapSound === "function") playSnapSound();
-          }
-        });
-        block.addEventListener("mouseleave", () => {
-          const detailText = document.getElementById("status-details-text");
-          const statusCard = document.getElementById("status-module-card");
-          if (
-            detailText &&
-            statusCard &&
-            !statusCard.classList.contains("system-error")
-          ) {
-            detailText.textContent =
-              "I turn ideas into production AI systems.";
-            detailText.style.color = "#fff";
-          }
-        });
-      });
     }
 
-    // Brick Anatomy interactive hover updates
-    const anatomyParts = document.querySelectorAll(".anatomy-part");
-    const readoutTitle = document.getElementById("readout-title-text");
-    const readoutText = document.getElementById("readout-desc-text");
+    // Senior Frontend Architecture - Skunkworks Terminal Controller
+    let heroTerminalTimer = null;
+    const defaultHeroLog = "I turn ideas into production AI systems.";
 
-    if (anatomyParts.length > 0 && readoutTitle && readoutText) {
-      const readouts = {
-        studs: {
-          title: "The Studs (Connection: Soft Skills)",
-          desc: "Visualizes interpersonal & problem-solving connections. Includes: Active Listening, R&D Methodologies, Client Communication, Technical Writing, and Cross-functional Team Leadership.",
-        },
-        walls: {
-          title: "The Walls (Structural: Core Languages)",
-          desc: "The solid shell providing code integrity. Includes: Python (Data & AI), JavaScript/TypeScript (Web frontends), Java (Algorithms & Systems Architecture), and Dart (Mobile).",
-        },
-        interior: {
-          title: "Hollow Interior (Frameworks & Support)",
-          desc: "Visualizes the structural support cores inside. Includes: LangGraph (Agentic Loops), FastAPI (APIs & Services), Neo4j (Graph RAG), and Docker (Deployment).",
-        },
-      };
+    function updateHeroTerminal(logMessage, customColor) {
+      const detailText = document.getElementById("status-details-text");
+      const statusCard = document.getElementById("status-module-card");
+      if (!detailText || (statusCard && statusCard.classList.contains("system-error"))) return;
 
-      anatomyParts.forEach((part) => {
-        part.addEventListener("mouseenter", () => {
-          const type = part.getAttribute("data-part");
-          if (readouts[type]) {
-            readoutTitle.textContent = readouts[type].title;
-            readoutText.textContent = readouts[type].desc;
-            if (typeof playSnapSound === "function") playSnapSound();
-          }
-        });
-        part.addEventListener("mouseleave", () => {
-          readoutTitle.textContent = "Interactive Analysis";
-          readoutText.textContent =
-            "Hover over any component of the brick to inspect structural properties.";
-        });
-      });
+      if (heroTerminalTimer) clearTimeout(heroTerminalTimer);
+
+      detailText.style.transition = "color 0.15s ease, opacity 0.15s ease";
+      detailText.style.opacity = "0.4";
+
+      setTimeout(() => {
+        detailText.textContent = logMessage;
+        detailText.style.color = customColor || "var(--accent)";
+        detailText.style.opacity = "1";
+      }, 70);
     }
+
+    function resetHeroTerminal() {
+      const detailText = document.getElementById("status-details-text");
+      const statusCard = document.getElementById("status-module-card");
+      if (!detailText || (statusCard && statusCard.classList.contains("system-error"))) return;
+
+      if (heroTerminalTimer) clearTimeout(heroTerminalTimer);
+
+      heroTerminalTimer = setTimeout(() => {
+        detailText.style.transition = "color 0.2s ease, opacity 0.2s ease";
+        detailText.style.opacity = "0.4";
+        setTimeout(() => {
+          detailText.textContent = defaultHeroLog;
+          detailText.style.color = "#fff";
+          detailText.style.opacity = "1";
+        }, 120);
+      }, 250);
+    }
+
+    // Brick-by-Brick Tagline & Color Mappings
+    const brickTaglines = {
+      1: "B.Sc. CS: Survived academic structures & laid OOP foundation.",
+      2: "MCA TKM College: Scaled system architectures & graph nodes.",
+      3: "Bluecast Intern: Shipped real agentic DXF cascades to production.",
+      4: "Agentic AI Engineer: Currently building pipelines that reason.",
+    };
+
+    const brickColors = {
+      1: "#94a3b8", // Grey
+      2: "#3b82f6", // Blue
+      3: "#f43f5e", // Red
+      4: "#facc15"  // Yellow (block-yellow)
+    };
+
+    // Restore Journey Block Hover & Click Tagline Updates
+    document.querySelectorAll(".journey-block").forEach((block) => {
+      const level = block.getAttribute("data-level");
+      const color = brickColors[level] || "var(--accent)";
+      const tagline = brickTaglines[level] || "I turn ideas into production AI systems.";
+
+      block.addEventListener("mouseenter", () => {
+        updateHeroTerminal(tagline, color);
+        if (typeof playSnapSound === "function") playSnapSound();
+      });
+
+      block.addEventListener("mouseleave", () => {
+        const activeEl = document.querySelector(".active");
+        if (!activeEl) {
+          resetHeroTerminal();
+        }
+      });
+    });
+
+    // Click-to-Inspect State-Based Highlighting & Terminal Controller
+    const inspectableElements = document.querySelectorAll(
+      ".proj-card, .skill-item, .exp-card, .manifesto-card, .edu-card, .cert-card, .journey-block"
+    );
+
+    inspectableElements.forEach((el) => {
+      // Live hover previewing for all inspectable modules
+      el.addEventListener("mouseenter", () => {
+        if (el.classList.contains("journey-block")) return; // handled above with specific taglines
+
+        const titleEl = el.querySelector(".proj-name, .exp-role, .manifesto-card-title, .edu-degree, .cert-name") || el;
+        const nameText = (titleEl ? titleEl.textContent : el.textContent).trim();
+
+        let statusColor = "var(--accent)";
+        if (el.classList.contains("proj-card") || el.classList.contains("cert-card")) {
+          statusColor = "var(--accent-2)";
+        } else if (el.classList.contains("exp-card")) {
+          statusColor = "var(--cta-red)";
+        }
+
+        updateHeroTerminal(`Diagnostic: Inspecting ${nameText}... [Status: Active]`, statusColor);
+      });
+
+      el.addEventListener("mouseleave", () => {
+        if (el.classList.contains("journey-block")) return;
+        const activeEl = document.querySelector(".active");
+        if (!activeEl) {
+          resetHeroTerminal();
+        }
+      });
+
+      // Click selection to lock active state
+      el.addEventListener("click", (e) => {
+        if (e.target.closest("a, button, input")) return;
+
+        // Remove 'active' from all others
+        document.querySelectorAll(".active").forEach((a) => a.classList.remove("active"));
+
+        // Add 'active' to clicked element
+        el.classList.add("active");
+
+        const titleEl = el.querySelector(".proj-name, .exp-role, .manifesto-card-title, .edu-degree, .cert-name, .jb-label-title") || el;
+        const nameText = (titleEl ? titleEl.textContent : el.textContent).trim();
+
+        let statusColor = "var(--accent)";
+        let logMsg = `Diagnostic: Inspecting ${nameText}... [Status: Active]`;
+
+        if (el.classList.contains("journey-block")) {
+          const level = el.getAttribute("data-level");
+          statusColor = brickColors[level] || "var(--accent)";
+          logMsg = brickTaglines[level] || logMsg;
+        } else if (el.classList.contains("proj-card") || el.classList.contains("cert-card")) {
+          statusColor = "var(--accent-2)";
+        } else if (el.classList.contains("exp-card")) {
+          statusColor = "var(--cta-red)";
+        }
+
+        // Lock in Hero Status Console
+        updateHeroTerminal(logMsg, statusColor);
+        if (typeof playSnapSound === "function") playSnapSound();
+      });
+    });
+
+    // Scroll-Synced Data Bus Observer (Active Signal Tracking)
+    const timelineEl = document.querySelector(".timeline");
+    const expCardsEl = document.querySelectorAll(".timeline .exp-card");
+
+    if (timelineEl && expCardsEl.length > 0) {
+      function snapSignalPacketToCard(activeCard) {
+        const stud = activeCard.querySelector(".timeline-stud");
+        const cardTop = activeCard.offsetTop;
+        const studTop = stud ? stud.offsetTop : 36;
+        const studHeight = stud ? stud.offsetHeight : 14;
+        const packetHeight = 36;
+
+        // Calculate Y offset to align packet center precisely to stud center
+        const targetY = cardTop + studTop + (studHeight / 2) - (packetHeight / 2);
+        timelineEl.style.setProperty("--signal-packet-y", `${targetY}px`);
+      }
+
+      const busObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              snapSignalPacketToCard(entry.target);
+            }
+          });
+        },
+        {
+          root: null,
+          rootMargin: "-25% 0px -25% 0px",
+          threshold: 0.2,
+        }
+      );
+
+      expCardsEl.forEach((card) => busObserver.observe(card));
+      snapSignalPacketToCard(expCardsEl[0]);
+    }
+
+
 
     // Agentic Insight Widget Toggle & Stream
     const insightBtn = document.getElementById("insight-toggle-btn");
@@ -4212,6 +4379,11 @@
       let isRunning = false;
 
       const insightSteps = [
+        {
+          text: "// Scripted walkthrough, not a live agent call",
+          class: "text-muted",
+          delay: 0,
+        },
         {
           text: "> [AGENT] Checking visitor context... Recruiter detected.",
           class: "text-blue",
@@ -4298,6 +4470,47 @@
         } else {
           insightWrapper.style.display = "none";
           insightArrow.classList.remove("open");
+        }
+      });
+    }
+
+    // Media Lightbox Modal Handler
+    const mediaModal = document.getElementById("media-modal");
+    const mediaModalImg = document.getElementById("media-modal-img");
+    const mediaModalTitle = document.getElementById("media-modal-title");
+    const mediaModalClose = document.getElementById("media-modal-close");
+    const mediaModalBackdrop = document.getElementById("media-modal-backdrop");
+
+    if (mediaModal && mediaModalImg && mediaModalClose && mediaModalBackdrop) {
+      function openMediaModal(imgSrc, titleText) {
+        mediaModalImg.src = imgSrc;
+        if (mediaModalTitle) mediaModalTitle.textContent = `Diagnostic View // ${titleText}`;
+        mediaModal.classList.add("active");
+        document.body.style.overflow = "hidden";
+        if (typeof playSnapSound === "function") playSnapSound();
+      }
+
+      function closeMediaModal() {
+        mediaModal.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      document.querySelectorAll(".proj-media img").forEach((img) => {
+        img.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const card = img.closest(".proj-card");
+          const titleEl = card ? card.querySelector(".proj-name") : null;
+          const titleText = titleEl ? titleEl.textContent.trim() : "Project Demo";
+          openMediaModal(img.src, titleText);
+        });
+      });
+
+      mediaModalClose.addEventListener("click", closeMediaModal);
+      mediaModalBackdrop.addEventListener("click", closeMediaModal);
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && mediaModal.classList.contains("active")) {
+          closeMediaModal();
         }
       });
     }
