@@ -2261,8 +2261,9 @@
     .journey-block {
       position: relative;
       width: 90px;
-      height: 44px;
-      margin-bottom: 6px;
+      height: 48px;
+      margin-bottom: -2px;
+      transform-style: preserve-3d;
       transition:
         transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
         opacity 0.4s;
@@ -2284,12 +2285,14 @@
     }
 
     .journey-block:hover {
-      transform: scale(1.05);
+      transform: scale(1.05) translateZ(10px);
       z-index: 100;
     }
 
     .jb-face {
+      position: absolute;
       box-sizing: border-box;
+      border: 2px solid #0f172a;
     }
 
     .jb-front {
@@ -2298,15 +2301,43 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 2.5px solid #0f172a;
-      border-radius: 6px;
+      border-radius: 4px;
       box-shadow:
-        0 4px 0 #0f172a,
-        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        inset 0 1px 0 rgba(255, 255, 255, 0.25),
+        0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .jb-top {
+      width: 90px;
+      height: 12px;
+      top: -10px;
+      left: 0;
+      transform: rotateX(45deg);
+      transform-origin: bottom;
+      border-radius: 4px 4px 0 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0 12px;
+      z-index: 5;
+    }
+
+    .jb-top .jb-stud {
+      width: 22px;
+      height: 9px;
+      background: inherit;
+      border: 2px solid #0f172a;
+      border-radius: 50%;
+      box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.4);
+      background-image: radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.35) 0%, transparent 70%);
     }
 
     .block-grey .jb-front {
       background: #475569;
+    }
+
+    .block-grey .jb-top {
+      background: #64748b;
     }
 
     .block-grey {
@@ -2317,6 +2348,10 @@
       background: #1e3a8a;
     }
 
+    .block-blue .jb-top {
+      background: #3b82f6;
+    }
+
     .block-blue {
       color: #bfdbfe;
     }
@@ -2325,12 +2360,20 @@
       background: #991b1b;
     }
 
+    .block-red .jb-top {
+      background: #ef4444;
+    }
+
     .block-red {
       color: #fecaca;
     }
 
     .block-yellow .jb-front {
       background: #ca8a04;
+    }
+
+    .block-yellow .jb-top {
+      background: #facc15;
     }
 
     .block-yellow {
@@ -2404,12 +2447,23 @@
     @media (max-width: 480px) {
       .journey-block {
         width: 75px;
-        height: 38px;
+        height: 40px;
       }
 
       .jb-front {
         width: 75px;
-        height: 38px;
+        height: 36px;
+      }
+
+      .jb-top {
+        width: 75px;
+        height: 10px;
+        top: -9px;
+      }
+
+      .jb-top .jb-stud {
+        width: 17px;
+        height: 7px;
       }
 
       .jb-label-container {
@@ -2689,6 +2743,10 @@
                 <div class="jb-face jb-front">
                   <span class="jb-num">04</span>
                 </div>
+                <div class="jb-face jb-top">
+                  <div class="jb-stud"></div>
+                  <div class="jb-stud"></div>
+                </div>
                 <div class="jb-label-container">
                   <div class="jb-label-title">Agentic AI Engineer</div>
                   <div class="jb-label-desc">Currently Building</div>
@@ -2699,6 +2757,10 @@
               <div class="journey-block block-red locked" data-level="3">
                 <div class="jb-face jb-front">
                   <span class="jb-num">03</span>
+                </div>
+                <div class="jb-face jb-top">
+                  <div class="jb-stud"></div>
+                  <div class="jb-stud"></div>
                 </div>
                 <div class="jb-label-container">
                   <div class="jb-label-title">Bluecast R&D Intern</div>
@@ -2711,6 +2773,10 @@
                 <div class="jb-face jb-front">
                   <span class="jb-num">02</span>
                 </div>
+                <div class="jb-face jb-top">
+                  <div class="jb-stud"></div>
+                  <div class="jb-stud"></div>
+                </div>
                 <div class="jb-label-container">
                   <div class="jb-label-title">MCA Scholar</div>
                   <div class="jb-label-desc">TKM College of Engineering</div>
@@ -2721,6 +2787,10 @@
               <div class="journey-block block-grey locked" data-level="1">
                 <div class="jb-face jb-front">
                   <span class="jb-num">01</span>
+                </div>
+                <div class="jb-face jb-top">
+                  <div class="jb-stud"></div>
+                  <div class="jb-stud"></div>
                 </div>
                 <div class="jb-label-container">
                   <div class="jb-label-title">B.Sc. Computer Science</div>
