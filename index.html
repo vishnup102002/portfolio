@@ -181,24 +181,16 @@
       }
     }
 
-    /* raised stud baseplate pattern */
+    /* architectural modular grid pattern */
     .grid-overlay {
       position: fixed;
       inset: 0;
       z-index: 0;
       pointer-events: none;
       background-image:
-        radial-gradient(circle at 19px 19px,
-          rgba(255, 255, 255, 0.08) 12%,
-          transparent 15%),
-        radial-gradient(circle at 21px 21px,
-          rgba(0, 0, 0, 0.35) 12%,
-          transparent 18%),
-        radial-gradient(circle at 20px 20px,
-          rgba(30, 41, 59, 0.4) 0%,
-          rgba(15, 23, 42, 0.4) 15%,
-          transparent 16%);
-      background-size: 40px 40px;
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
       opacity: 0.95;
     }
 
@@ -584,49 +576,6 @@
       top: 0;
     }
 
-    .b3d-stud {
-      position: absolute;
-      width: 24px;
-      height: 24px;
-      transform-style: preserve-3d;
-      transform: translateZ(1px);
-    }
-
-    .b3d-stud-side {
-      position: absolute;
-      width: 24px;
-      height: 8px;
-      border: 1.5px solid #0f172a;
-      background: #ef4444;
-      transform: rotateX(-90deg) translateZ(12px);
-    }
-
-    .b3d-stud-top {
-      position: absolute;
-      width: 24px;
-      height: 24px;
-      border: 2px solid #0f172a;
-      border-radius: 50%;
-      background: #fca5a5;
-      transform: translateZ(8px);
-      box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.4);
-    }
-
-    .stud-pos-1 {
-      left: 14px;
-      top: 18px;
-    }
-
-    .stud-pos-2 {
-      left: 48px;
-      top: 18px;
-    }
-
-    .stud-pos-3 {
-      left: 82px;
-      top: 18px;
-    }
-
     /* ── NEURAL LOOP ANIMATION ── */
     .neural-container {
       position: relative;
@@ -655,20 +604,6 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
       position: relative;
       z-index: 5;
-    }
-
-    .neural-center-brick::before {
-      content: "";
-      position: absolute;
-      top: -5px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 10px;
-      height: 3px;
-      background: var(--cta-red);
-      border: 1px solid #0f172a;
-      border-bottom: none;
-      border-radius: 1px 1px 0 0;
     }
 
     .neural-orbit {
@@ -865,17 +800,17 @@
     .vstack-brick {
       width: 110px;
       height: 24px;
-      border: 3.5px solid #0f172a;
-      border-radius: 4px;
       position: relative;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border: 2px solid #0f172a;
+      border-radius: 4px;
+      background: var(--vstack-color, #1e293b);
+      color: #ffffff;
       box-shadow:
         0 3px 0 #0f172a,
-        inset 0 1px 0 rgba(255, 255, 255, 0.25);
-      margin-bottom: -3px;
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 10px;
-      font-weight: 800;
-      color: #fff;
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -886,32 +821,6 @@
         transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
         opacity 0.4s;
       cursor: pointer;
-    }
-
-    .vstack-brick::before {
-      content: "";
-      position: absolute;
-      top: -6px;
-      left: 20%;
-      width: 12px;
-      height: 3px;
-      background: inherit;
-      border: 1.5px solid #0f172a;
-      border-bottom: none;
-      border-radius: 1px 1px 0 0;
-    }
-
-    .vstack-brick::after {
-      content: "";
-      position: absolute;
-      top: -6px;
-      right: 20%;
-      width: 12px;
-      height: 3px;
-      background: inherit;
-      border: 1.5px solid #0f172a;
-      border-bottom: none;
-      border-radius: 1px 1px 0 0;
     }
 
     @keyframes stack-snap {
@@ -973,32 +882,6 @@
       box-shadow:
         0 2px 0 #0f172a,
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    }
-
-    .bb-brick::before {
-      content: "";
-      position: absolute;
-      top: -4px;
-      left: 20px;
-      width: 8px;
-      height: 2px;
-      background: inherit;
-      border: 1px solid #0f172a;
-      border-bottom: none;
-      border-radius: 1px 1px 0 0;
-    }
-
-    .bb-brick::after {
-      content: "";
-      position: absolute;
-      top: -4px;
-      right: 20px;
-      width: 8px;
-      height: 2px;
-      background: inherit;
-      border: 1px solid #0f172a;
-      border-bottom: none;
-      border-radius: 1px 1px 0 0;
     }
 
     .bb-brick.brick-1 {
@@ -1185,24 +1068,6 @@
       box-shadow: 0 10px 0 #0f172a;
     }
 
-    .manifesto-studs {
-      position: absolute;
-      top: -10px;
-      left: 20px;
-      display: flex;
-      gap: 8px;
-      z-index: 5;
-    }
-
-    .manifesto-studs .m-stud {
-      width: 14px;
-      height: 6px;
-      background: var(--card-accent, var(--accent));
-      border: 2.5px solid #0f172a;
-      border-bottom: none;
-      border-radius: 2px 2px 0 0;
-    }
-
     .manifesto-card-title {
       font-family: "Space Grotesk", sans-serif;
       font-size: 17px;
@@ -1321,20 +1186,6 @@
       padding: 0;
       width: 18px;
       opacity: 1;
-    }
-
-    .brick-char:not(.space)::before {
-      content: "";
-      position: absolute;
-      top: -7px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 12px;
-      height: 4px;
-      background: var(--char-bg, #1e293b);
-      border: 2px solid #0f172a;
-      border-bottom: none;
-      border-radius: 2px 2px 0 0;
     }
 
     @keyframes fly-in-tl {
@@ -1491,36 +1342,7 @@
     .hero-card {
       padding: 36px 30px;
       position: relative;
-      overflow: visible;
-    }
-
-    /* Lego cap stack on top of the hero-card */
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      top: -12px;
-      left: 30px;
-      width: 100px;
-      height: 8px;
-      background: var(--accent);
-      border: 3px solid #0f172a;
-      border-bottom: none;
-      border-radius: 4px 4px 0 0;
-      z-index: 5;
-    }
-
-    .hero-card::after {
-      content: "";
-      position: absolute;
-      top: -6px;
-      left: 45px;
-      width: 60px;
-      height: 4px;
-      background: var(--cta-red);
-      border: 2px solid #0f172a;
-      border-bottom: none;
-      border-radius: 2px 2px 0 0;
-      z-index: 4;
+      overflow: hidden;
     }
 
     .hero-card-label {
@@ -1863,20 +1685,7 @@
       box-shadow:
         0 6px 0 #0f172a,
         inset 0 2px 0 rgba(255, 255, 255, 0.15);
-      overflow: visible;
-    }
-
-    .skill-group::before {
-      content: "";
-      position: absolute;
-      top: -10px;
-      left: 20px;
-      width: 50px;
-      height: 6px;
-      background: var(--accent);
-      border: 2.5px solid #0f172a;
-      border-bottom: none;
-      border-radius: 3px 3px 0 0;
+      overflow: hidden;
     }
 
     .skill-group.bin-red {
@@ -1884,17 +1693,9 @@
       background: #851c1c;
     }
 
-    .skill-group.bin-red::before {
-      background: var(--cta-red);
-    }
-
     .skill-group.bin-yellow {
       --scan-color: var(--accent);
       background: #714e06;
-    }
-
-    .skill-group.bin-yellow::before {
-      background: var(--accent);
     }
 
     .skill-group.bin-blue {
@@ -1902,17 +1703,9 @@
       background: #1a365d;
     }
 
-    .skill-group.bin-blue::before {
-      background: #3b82f6;
-    }
-
     .skill-group.bin-green {
       --scan-color: var(--accent);
       background: #064e3b;
-    }
-
-    .skill-group.bin-green::before {
-      background: #10b981;
     }
 
     .skill-group.bin-gray {
@@ -1920,17 +1713,9 @@
       background: #334155;
     }
 
-    .skill-group.bin-gray::before {
-      background: #64748b;
-    }
-
     .skill-group.bin-orange {
       --scan-color: #f97316;
       background: #7c2d12;
-    }
-
-    .skill-group.bin-orange::before {
-      background: #f97316;
     }
 
     .skill-group-title {
@@ -2028,19 +1813,6 @@
       box-shadow: inset 0 0 10px rgba(16, 185, 129, 0.1);
     }
 
-    .edu-card::before {
-      content: "";
-      position: absolute;
-      top: -10px;
-      left: 20px;
-      width: 60px;
-      height: 6px;
-      background: var(--accent);
-      border: 2.5px solid #0f172a;
-      border-bottom: none;
-      border-radius: 3px 3px 0 0;
-    }
-
     .edu-degree {
       font-family: "Space Grotesk", sans-serif;
       font-size: 16px;
@@ -2074,22 +1846,7 @@
       text-align: center;
       padding: 64px 48px;
       position: relative;
-      overflow: visible;
-    }
-
-    .contact-inner::before {
-      content: "";
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 140px;
-      height: 8px;
-      background: var(--cta-red);
-      border: 3px solid #0f172a;
-      border-bottom: none;
-      border-radius: 4px 4px 0 0;
-      z-index: 2;
+      overflow: hidden;
     }
 
     .contact-title {
@@ -2504,9 +2261,8 @@
     .journey-block {
       position: relative;
       width: 90px;
-      height: 48px;
-      margin-bottom: -4px;
-      transform-style: preserve-3d;
+      height: 44px;
+      margin-bottom: 6px;
       transition:
         transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
         opacity 0.4s;
@@ -2528,14 +2284,12 @@
     }
 
     .journey-block:hover {
-      transform: scale(1.05) translateZ(10px);
+      transform: scale(1.05);
       z-index: 100;
     }
 
     .jb-face {
-      position: absolute;
       box-sizing: border-box;
-      border: 2px solid #0f172a;
     }
 
     .jb-front {
@@ -2544,41 +2298,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 4px;
+      border: 2.5px solid #0f172a;
+      border-radius: 6px;
       box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.25),
-        0 2px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    .jb-top {
-      width: 90px;
-      height: 12px;
-      top: -12px;
-      left: 0;
-      transform: rotateX(45deg);
-      transform-origin: bottom;
-      border-radius: 4px 4px 0 0;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: 0 12px;
-    }
-
-    .jb-top .jb-stud {
-      width: 14px;
-      height: 6px;
-      background: inherit;
-      border: 2px solid #0f172a;
-      border-radius: 50%;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        0 4px 0 #0f172a,
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
     }
 
     .block-grey .jb-front {
       background: #475569;
-    }
-
-    .block-grey .jb-top {
-      background: #64748b;
     }
 
     .block-grey {
@@ -2589,10 +2317,6 @@
       background: #1e3a8a;
     }
 
-    .block-blue .jb-top {
-      background: #3b82f6;
-    }
-
     .block-blue {
       color: #bfdbfe;
     }
@@ -2601,20 +2325,12 @@
       background: #991b1b;
     }
 
-    .block-red .jb-top {
-      background: #ef4444;
-    }
-
     .block-red {
       color: #fecaca;
     }
 
     .block-yellow .jb-front {
       background: #ca8a04;
-    }
-
-    .block-yellow .jb-top {
-      background: #facc15;
     }
 
     .block-yellow {
@@ -2680,24 +2396,6 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
 
-    .baseplate-studs {
-      display: flex;
-      justify-content: flex-start;
-      gap: 10px;
-      width: calc(100% - 48px);
-      margin-bottom: -10px;
-      padding-left: 10px;
-      z-index: 3;
-    }
-
-    .bp-stud {
-      width: 16px;
-      height: 6px;
-      background: #475569;
-      border: 2px solid #0f172a;
-      border-radius: 50%;
-    }
-
     .skills-layout-wrapper {
       display: block;
       margin-top: 32px;
@@ -2706,23 +2404,12 @@
     @media (max-width: 480px) {
       .journey-block {
         width: 75px;
-        height: 40px;
+        height: 38px;
       }
 
       .jb-front {
         width: 75px;
-        height: 36px;
-      }
-
-      .jb-top {
-        width: 75px;
-        height: 10px;
-        top: -10px;
-      }
-
-      .jb-top .jb-stud {
-        width: 12px;
-        height: 4px;
+        height: 38px;
       }
 
       .jb-label-container {
@@ -2996,25 +2683,11 @@
 
           <!-- Journey Tower 3D Stack Container -->
           <div class="journey-tower-wrapper">
-            <!-- Grid Baseplate Stud Layer -->
-            <div class="baseplate-studs">
-              <div class="bp-stud"></div>
-              <div class="bp-stud"></div>
-              <div class="bp-stud"></div>
-              <div class="bp-stud"></div>
-              <div class="bp-stud"></div>
-              <div class="bp-stud"></div>
-            </div>
-
             <div class="journey-tower" id="journey-tower">
               <!-- Level 4: Agentic AI Engineer (Yellow) -->
               <div class="journey-block block-yellow locked" data-level="4">
                 <div class="jb-face jb-front">
                   <span class="jb-num">04</span>
-                </div>
-                <div class="jb-face jb-top">
-                  <div class="jb-stud"></div>
-                  <div class="jb-stud"></div>
                 </div>
                 <div class="jb-label-container">
                   <div class="jb-label-title">Agentic AI Engineer</div>
@@ -3027,10 +2700,6 @@
                 <div class="jb-face jb-front">
                   <span class="jb-num">03</span>
                 </div>
-                <div class="jb-face jb-top">
-                  <div class="jb-stud"></div>
-                  <div class="jb-stud"></div>
-                </div>
                 <div class="jb-label-container">
                   <div class="jb-label-title">Bluecast R&D Intern</div>
                   <div class="jb-label-desc">R&D, Agentic workflows</div>
@@ -3042,10 +2711,6 @@
                 <div class="jb-face jb-front">
                   <span class="jb-num">02</span>
                 </div>
-                <div class="jb-face jb-top">
-                  <div class="jb-stud"></div>
-                  <div class="jb-stud"></div>
-                </div>
                 <div class="jb-label-container">
                   <div class="jb-label-title">MCA Scholar</div>
                   <div class="jb-label-desc">TKM College of Engineering</div>
@@ -3056,10 +2721,6 @@
               <div class="journey-block block-grey locked" data-level="1">
                 <div class="jb-face jb-front">
                   <span class="jb-num">01</span>
-                </div>
-                <div class="jb-face jb-top">
-                  <div class="jb-stud"></div>
-                  <div class="jb-stud"></div>
                 </div>
                 <div class="jb-label-container">
                   <div class="jb-label-title">B.Sc. Computer Science</div>
@@ -3123,10 +2784,6 @@
         <div class="manifesto-grid">
           <!-- Card 1: Design for Failure -->
           <div class="glass manifesto-card reveal" style="--card-accent: var(--cta-red);">
-            <div class="manifesto-studs">
-              <div class="m-stud"></div>
-              <div class="m-stud"></div>
-            </div>
             <h3 class="manifesto-card-title">Design for Failure</h3>
             <p class="manifesto-card-desc">I treat production as inherently unstable. Across all my systems, I build in
               modular fallbacks—whether it's multi-tier scraping for agents or offline telemetry caching for mobile
@@ -3134,10 +2791,6 @@
           </div>
           <!-- Card 2: State-Aware Execution -->
           <div class="glass manifesto-card reveal" style="--card-accent: var(--accent);">
-            <div class="manifesto-studs">
-              <div class="m-stud"></div>
-              <div class="m-stud"></div>
-            </div>
             <h3 class="manifesto-card-title">State-Aware Execution</h3>
             <p class="manifesto-card-desc">I prioritize data integrity. From maintaining session states in WhatsApp bots
               to tracking long-horizon search tasks, I implement checkpointing to ensure systems can recover from
@@ -3145,10 +2798,6 @@
           </div>
           <!-- Card 3: Objective Validation -->
           <div class="glass manifesto-card reveal" style="--card-accent: var(--accent-2);">
-            <div class="manifesto-studs">
-              <div class="m-stud"></div>
-              <div class="m-stud"></div>
-            </div>
             <h3 class="manifesto-card-title">Objective Validation</h3>
             <p class="manifesto-card-desc">I favor quantifiable metrics over manual testing. Whether using an
               LLM-as-a-Judge to score an agent's reasoning or unit tests to validate geometric algorithms in vision
@@ -3156,10 +2805,6 @@
           </div>
           <!-- Card 4: Always Ship -->
           <div class="glass manifesto-card reveal" style="--card-accent: var(--brick-green);">
-            <div class="manifesto-studs">
-              <div class="m-stud"></div>
-              <div class="m-stud"></div>
-            </div>
             <h3 class="manifesto-card-title">Always Ship</h3>
             <p class="manifesto-card-desc">My ultimate metric is deployment. I prioritize getting a functional build
               into the user's hands over endless polishing. I design systems to be "shippable" from day one.</p>
