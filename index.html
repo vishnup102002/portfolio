@@ -1785,7 +1785,10 @@
       gap: 16px;
       position: relative;
       overflow: hidden;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
     }
 
     .cert-card:hover {
@@ -3464,73 +3467,108 @@
             <h2 class="section-title">Certifications</h2>
           </div>
           <div class="certs-grid">
-            <div class="glass-sm cert-card reveal">
-              <div>
+            <a href="https://www.credly.com/badges/4ba52ee7-407b-447f-a593-36258ad6aed4/linked_in_profile" target="_blank" rel="noopener noreferrer" class="glass-sm cert-card reveal">
+              <div style="width: 100%;">
                 <div class="cert-name">
                   Generative AI & AI Agents Specialist
                 </div>
                 <div class="cert-org">IBM via Coursera</div>
-                <div class="cert-year">2026</div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <span class="cert-year">2026</span>
+                  <span style="font-size: 12px; color: var(--accent); font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+                    Verify <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </span>
+                </div>
               </div>
-            </div>
+            </a>
 
-            <div class="glass-sm cert-card reveal">
-              <div>
+            <a href="https://www.coursera.org/account/accomplishments/specialization/5BCZ5ML6LEU4" target="_blank" rel="noopener noreferrer" class="glass-sm cert-card reveal">
+              <div style="width: 100%;">
                 <div class="cert-name">
                   Generative AI and AI Agents Professional
                 </div>
                 <div class="cert-org">AWS via Coursera</div>
-                <div class="cert-year">2026</div>
-              </div>
-            </div>
-
-            <div class="glass-sm cert-card reveal">
-              <div>
-                <div class="cert-name">
-                  Fundamentals of AI Agents Using RAG and LangChain
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <span class="cert-year">2026</span>
+                  <span style="font-size: 12px; color: var(--accent); font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+                    Verify <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </span>
                 </div>
-                <div class="cert-org">IBM via Coursera</div>
-                <div class="cert-year">2026</div>
               </div>
-            </div>
+            </a>
 
-            <div class="glass-sm cert-card reveal">
-              <div>
+            <a href="https://verify.skilljar.com/c/wqo247pb8jan" target="_blank" rel="noopener noreferrer" class="glass-sm cert-card reveal">
+              <div style="width: 100%;">
                 <div class="cert-name">
                   Model Context Protocol
                 </div>
                 <div class="cert-org">Anthropic Education</div>
-                <div class="cert-year">2026</div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <span class="cert-year">2026</span>
+                  <span style="font-size: 12px; color: var(--accent); font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+                    Verify <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </span>
+                </div>
               </div>
-            </div>
+            </a>
 
-            <div class="glass-sm cert-card reveal">
-              <div>
+            <a href="https://www.coursera.org/account/accomplishments/verify/LXD5OYALZEKO" target="_blank" rel="noopener noreferrer" class="glass-sm cert-card reveal">
+              <div style="width: 100%;">
+                <div class="cert-name">
+                  Fundamentals of AI Agents Using RAG and LangChain
+                </div>
+                <div class="cert-org">IBM via Coursera</div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <span class="cert-year">2026</span>
+                  <span style="font-size: 12px; color: var(--accent); font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+                    Verify <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+
+            <a href="https://www.coursera.org/account/accomplishments/verify/FNTN84VS32W4?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course" target="_blank" rel="noopener noreferrer" class="glass-sm cert-card reveal">
+              <div style="width: 100%;">
                 <div class="cert-name">
                   Python for Data Science & Development
                 </div>
                 <div class="cert-org">IBM via Coursera</div>
-                <div class="cert-year">2026</div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <span class="cert-year">2026</span>
+                  <span style="font-size: 12px; color: var(--accent); font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+                    Verify <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </span>
+                </div>
               </div>
-            </div>
+            </a>
 
-            <div class="glass-sm cert-card reveal">
-              <div>
+            <a href="https://onlinecourses.nptel.ac.in/noc25_cs81/preview" target="_blank" rel="noopener noreferrer" class="glass-sm cert-card reveal">
+              <div style="width: 100%;">
                 <div class="cert-name">
                   Data Structures & Algorithms Design
                 </div>
                 <div class="cert-org">NPTEL – IIT Kanpur</div>
-                <div class="cert-year">2025</div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <span class="cert-year">2025</span>
+                  <span style="font-size: 12px; color: var(--accent); font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+                    Verify <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </span>
+                </div>
               </div>
-            </div>
+            </a>
 
-            <div class="glass-sm cert-card reveal">
-              <div>
+            <a href="https://www.nactetindia.org/search.php" target="_blank" rel="noopener noreferrer" class="glass-sm cert-card reveal">
+              <div style="width: 100%;">
                 <div class="cert-name">Python – Web Development Expert</div>
                 <div class="cert-org">NACTET</div>
-                <div class="cert-year">2024</div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                  <span class="cert-year">2024</span>
+                  <span style="font-size: 12px; color: var(--accent); font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+                    Verify <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </span>
+                </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
