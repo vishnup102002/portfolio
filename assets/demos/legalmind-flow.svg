@@ -1,0 +1,272 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #05070d; rx: 8px; stroke: #0f172a; stroke-width: 2; }
+      .header-title { font-family: 'Space Grotesk', 'Fira Code', monospace; font-size: 13px; fill: #38bdf8; font-weight: 700; letter-spacing: 1.5px; }
+      .container-box { fill: rgba(15, 23, 42, 0.4); stroke: #1e293b; stroke-width: 1.5; rx: 8px; }
+      .box { fill: #0f172a; stroke: #1e293b; stroke-width: 1.5; rx: 6px; }
+      .box-active { fill: #0c1a2e; stroke: #38bdf8; stroke-width: 1.5; rx: 6px; }
+      .box-agent { fill: #180d2b; stroke: #a855f7; stroke-width: 1.5; rx: 6px; }
+      .box-rag { fill: #082f25; stroke: #10b981; stroke-width: 1.5; rx: 6px; }
+      .box-shield { fill: #2a1b08; stroke: #f59e0b; stroke-width: 1.5; rx: 6px; }
+      .box-alert { fill: #220a11; stroke: #f43f5e; stroke-width: 1.5; rx: 6px; }
+      .txt-title { font-family: 'Inter', sans-serif; font-size: 11px; fill: #f8fafc; font-weight: 700; }
+      .txt-sub { font-family: 'JetBrains Mono', monospace; font-size: 9px; fill: #94a3b8; }
+      .txt-accent { font-family: 'JetBrains Mono', monospace; font-size: 9px; fill: #6ee7b7; }
+      .txt-purple { font-family: 'JetBrains Mono', monospace; font-size: 9px; fill: #c084fc; }
+      .txt-gold { font-family: 'JetBrains Mono', monospace; font-size: 9px; fill: #fde68a; }
+      .line { stroke: #334155; stroke-width: 2; fill: none; stroke-dasharray: 4 4; }
+      .status { font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: #10b981; font-weight: 700; }
+    </style>
+    <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="glow-green" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="glow-purple" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="glow-gold" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="glow-red" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1100" height="700" class="bg" />
+  <text x="25" y="32" class="header-title">> LEGALMIND // ASYMMETRICAL JUSTICE ENGINE &amp; HYBRID GraphRAG PIPELINE</text>
+
+  <!-- FLOW PATHS (SMIL Animation Targets) -->
+  <path id="path-ingest-qdrant" d="M 215 105 L 255 105 L 255 155 L 285 155" class="line" />
+  <path id="path-ingest-neo4j" d="M 215 105 L 255 105 L 255 200 L 285 200" class="line" />
+  <path id="path-ingress" d="M 145 315 L 175 315 M 245 315 L 275 315" class="line" />
+  <path id="path-gateway-agent" d="M 395 315 L 440 315" class="line" />
+  <path id="path-tool-search" d="M 580 300 L 610 300 L 610 230 L 640 230" class="line" />
+  <path id="path-tool-notice" d="M 580 340 L 610 340 L 610 400 L 640 400" class="line" />
+  <path id="path-retrieval" d="M 780 230 L 810 230 L 810 180 M 425 155 L 810 155 M 425 200 L 810 200" class="line" />
+  <path id="path-rag-shield" d="M 890 230 L 890 280" class="line" />
+  <path id="path-shield-pass" d="M 890 350 L 890 380" class="line" />
+  <path id="path-shield-fail" d="M 975 315 L 1025 315 L 1025 565 L 750 565" class="line" />
+  <path id="path-synth-delivery" d="M 890 450 L 890 490 L 520 490 L 520 530" class="line" />
+  <path id="path-notice-delivery" d="M 770 400 L 800 400 L 800 500 L 260 500 L 260 530" class="line" />
+  <path id="path-user-out" d="M 520 620 L 520 645" class="line" />
+
+  <!-- CONTAINER 1: PHASE 1 — KNOWLEDGE INGESTION -->
+  <rect x="25" y="60" width="415" height="175" class="container-box" />
+  <text x="40" y="80" class="header-title" font-size="10px" fill="#94a3b8">PHASE 1: KNOWLEDGE INGESTION &amp; HYBRID INDEXING</text>
+
+  <g transform="translate(40, 90)">
+    <rect width="175" height="40" class="box" />
+    <text x="10" y="18" class="txt-title">Indian Statutes XML / Text</text>
+    <text x="10" y="31" class="txt-sub">ingest_xml_statutes.py</text>
+  </g>
+
+  <g transform="translate(40, 145)">
+    <rect width="175" height="75" class="box-rag" />
+    <text x="10" y="18" class="txt-title" fill="#10b981">RAPTOR Tree Builder</text>
+    <text x="10" y="34" class="txt-accent">• Layer 0: Sentence Chunks</text>
+    <text x="10" y="48" class="txt-accent">• Layer 1: Cluster Summaries</text>
+    <text x="10" y="62" class="txt-accent">• MiniLM-L6-v2 Embeddings</text>
+  </g>
+
+  <g transform="translate(285, 135)">
+    <rect width="140" height="40" class="box-rag" />
+    <text x="10" y="16" class="txt-title" fill="#10b981">Qdrant Cloud DB</text>
+    <text x="10" y="30" class="txt-accent">Dense + BM25 Hybrid</text>
+  </g>
+
+  <g transform="translate(285, 182)">
+    <rect width="140" height="40" class="box-rag" />
+    <text x="10" y="16" class="txt-title" fill="#10b981">Neo4j AuraDB Graph</text>
+    <text x="10" y="30" class="txt-accent">Statute ➔ Precedent</text>
+  </g>
+
+  <!-- CONTAINER 2: PHASE 2 — INGRESS & GATEWAY -->
+  <rect x="25" y="250" width="385" height="190" class="container-box" />
+  <text x="40" y="270" class="header-title" font-size="10px" fill="#38bdf8">PHASE 2: INGRESS &amp; MODALITY GATEWAY</text>
+
+  <g transform="translate(40, 285)">
+    <rect width="105" height="60" class="box-active" />
+    <text x="8" y="18" class="txt-title">User Ingress</text>
+    <text x="8" y="34" class="txt-sub">• Voice Note</text>
+    <text x="8" y="48" class="txt-sub">• WhatsApp / WebRTC</text>
+  </g>
+
+  <g transform="translate(160, 285)">
+    <rect width="85" height="60" class="box-active" />
+    <text x="8" y="18" class="txt-title">Groq Whisper</text>
+    <text x="8" y="32" class="txt-sub">whisper-v3-turbo</text>
+    <text x="8" y="46" class="txt-sub">Low-Latency STT</text>
+  </g>
+
+  <g transform="translate(260, 285)">
+    <rect width="135" height="60" class="box" />
+    <text x="8" y="18" class="txt-title">Locale Normalizer</text>
+    <text x="8" y="34" class="txt-sub">• Malayalam ➔ English</text>
+    <text x="8" y="48" class="txt-sub">• Legal Entity Canonicalizer</text>
+  </g>
+
+  <g transform="translate(40, 360)">
+    <rect width="355" height="65" class="box" />
+    <text x="10" y="18" class="txt-title">WhatsApp Session Manager &amp; Gateway (server.py)</text>
+    <text x="10" y="34" class="txt-sub">• Per-Phone Context Lock (en / ml preference)</text>
+    <text x="10" y="48" class="txt-sub">• FastAPI Async Handlers &amp; Twilio Webhook Dispatcher</text>
+  </g>
+
+  <!-- CONTAINER 3: PHASE 3 — REACT AGENT -->
+  <rect x="425" y="250" width="180" height="190" class="container-box" />
+  <text x="435" y="270" class="header-title" font-size="10px" fill="#c084fc">PHASE 3: REACT AGENT</text>
+
+  <g transform="translate(435, 285)">
+    <rect width="160" height="40" class="box-agent" />
+    <text x="8" y="16" class="txt-title" fill="#c084fc">TokenBudgetManager</text>
+    <text x="8" y="30" class="txt-purple">Redis 14,400 TPM Gate</text>
+  </g>
+
+  <g transform="translate(435, 335)">
+    <rect width="160" height="90" class="box-agent" />
+    <text x="8" y="18" class="txt-title" fill="#c084fc">ReAct Agent Loop</text>
+    <text x="8" y="34" class="txt-purple">• Groq Llama-3.1-8B</text>
+    <text x="8" y="48" class="txt-purple">• Deterministic Fast-Path</text>
+    <text x="8" y="62" class="txt-purple">• Tool Selector</text>
+    <text x="8" y="76" class="txt-purple">• Dynamic Intent Router</text>
+  </g>
+
+  <!-- CONTAINER 4: PHASE 4 — HYBRID RAG & CITATION SHIELD -->
+  <rect x="620" y="60" width="455" height="380" class="container-box" />
+  <text x="635" y="80" class="header-title" font-size="10px" fill="#f59e0b">PHASE 4: HYBRID RAG &amp; CITATION SHIELD</text>
+
+  <g transform="translate(635, 205)">
+    <rect width="145" height="50" class="box-rag" />
+    <text x="8" y="18" class="txt-title" fill="#10b981">Tool: search_statutes</text>
+    <text x="8" y="34" class="txt-accent">Helsinki-NLP Translator</text>
+  </g>
+
+  <g transform="translate(635, 375)">
+    <rect width="135" height="50" class="box" />
+    <text x="8" y="18" class="txt-title">Tool: draft_notice</text>
+    <text x="8" y="34" class="txt-sub">Notice Compiler</text>
+  </g>
+
+  <g transform="translate(805, 135)">
+    <rect width="170" height="95" class="box-rag" />
+    <text x="10" y="18" class="txt-title" fill="#10b981">Dual Retrieval Engine</text>
+    <text x="10" y="34" class="txt-accent">• Qdrant Vector Search</text>
+    <text x="10" y="48" class="txt-accent">• Neo4j Cypher Traversal</text>
+    <text x="10" y="62" class="txt-accent">• RAPTOR Summaries</text>
+    <text x="10" y="76" class="txt-accent">• BGE-Reranker Base</text>
+  </g>
+
+  <g transform="translate(805, 275)">
+    <rect width="170" height="75" class="box-shield" />
+    <text x="10" y="18" class="txt-title" fill="#f59e0b">Citation Shield</text>
+    <text x="10" y="34" class="txt-gold">• Grounding Check</text>
+    <text x="10" y="48" class="txt-gold">• PASS: Score ≥ 0.72</text>
+    <text x="10" y="62" class="txt-gold">• FAIL: Re-retrieval / KeLSA</text>
+  </g>
+
+  <g transform="translate(805, 375)">
+    <rect width="170" height="50" class="box-shield" />
+    <text x="10" y="18" class="txt-title" fill="#f59e0b">IRAC Synthesizer</text>
+    <text x="10" y="34" class="txt-gold">Issue ➔ Rule ➔ App ➔ Conc</text>
+  </g>
+
+  <!-- CONTAINER 5: PHASE 5 — MULTI-MODAL SYNTHESIS & DELIVERY -->
+  <rect x="25" y="460" width="1050" height="170" class="container-box" />
+  <text x="40" y="480" class="header-title" font-size="10px" fill="#10b981">PHASE 5: MULTI-MODAL SYNTHESIS &amp; DELIVERY TIER</text>
+
+  <g transform="translate(40, 500)">
+    <rect width="210" height="110" class="box" />
+    <text x="10" y="20" class="txt-title">1. Formal PDF Compiler</text>
+    <text x="10" y="38" class="txt-sub">• ReportLab / WeasyPrint Engine</text>
+    <text x="10" y="54" class="txt-sub">• formal_legal_notice.pdf</text>
+    <text x="10" y="70" class="txt-sub">• Statutory Citation Embeddings</text>
+    <text x="10" y="86" class="txt-sub">• Direct WhatsApp Document Push</text>
+  </g>
+
+  <g transform="translate(270, 500)">
+    <rect width="260" height="110" class="box-active" />
+    <text x="10" y="20" class="txt-title">2. Voice Synthesis Engine (gTTS)</text>
+    <text x="10" y="38" class="txt-sub">• RemedialAudioGenerator</text>
+    <text x="10" y="54" class="txt-sub">• Audio Stream .mp3 / .wav Synthesis</text>
+    <text x="10" y="70" class="txt-sub">• Localized Malayalam Accented TTS</text>
+    <text x="10" y="86" class="txt-sub">• WhatsApp Voice Note Attachment</text>
+  </g>
+
+  <g transform="translate(550, 500)">
+    <rect width="240" height="110" class="box" />
+    <text x="10" y="20" class="txt-title">3. Layperson WhatsApp Formatter</text>
+    <text x="10" y="38" class="txt-sub">• format_for_whatsapp() Cleaner</text>
+    <text x="10" y="54" class="txt-sub">• Strips Structural IRAC Markup</text>
+    <text x="10" y="70" class="txt-sub">• Actionable Citizen Action Steps</text>
+    <text x="10" y="86" class="txt-sub">• Low-Bandwidth Plaintext Stream</text>
+  </g>
+
+  <g transform="translate(810, 500)">
+    <rect width="240" height="110" class="box-alert" />
+    <text x="10" y="20" class="txt-title" fill="#f43f5e">4. KeLSA Fallback Helpline</text>
+    <text x="10" y="38" class="txt-sub">• Activated if Citation Shield Fails</text>
+    <text x="10" y="54" class="txt-sub">• Zero-Hallucination Safe Fallback</text>
+    <text x="10" y="70" class="txt-sub">• Kerala Legal Services Authority</text>
+    <text x="10" y="86" class="txt-sub">• Toll-Free: 15100 / 0471-2303122</text>
+  </g>
+
+  <!-- FINAL DELIVERABLE DISPLAY -->
+  <g transform="translate(350, 642)">
+    <rect width="400" height="40" class="box-rag" />
+    <text x="12" y="24" class="txt-title" fill="#10b981">✨ FINAL DELIVERABLE: Structured Legal Roadmap + Voice Note + PDF Notice</text>
+  </g>
+
+  <!-- LIGHT PULSE ANIMATIONS -->
+  <circle r="4" fill="#10b981" filter="url(#glow-green)">
+    <animateMotion dur="2.8s" repeatCount="indefinite" path="M 215 105 L 255 105 L 255 155 L 285 155" />
+  </circle>
+  <circle r="4" fill="#10b981" filter="url(#glow-green)">
+    <animateMotion dur="2.8s" repeatCount="indefinite" path="M 215 105 L 255 105 L 255 200 L 285 200" />
+  </circle>
+
+  <circle r="5" fill="#38bdf8" filter="url(#glow-cyan)">
+    <animateMotion dur="2s" repeatCount="indefinite" path="M 145 315 L 175 315 M 245 315 L 275 315 M 395 315 L 440 315" />
+  </circle>
+
+  <circle r="5" fill="#a855f7" filter="url(#glow-purple)">
+    <animateMotion dur="2.5s" repeatCount="indefinite" path="M 580 300 L 610 300 L 610 230 L 640 230" />
+  </circle>
+  <circle r="4" fill="#a855f7" filter="url(#glow-purple)">
+    <animateMotion dur="3.2s" repeatCount="indefinite" path="M 580 340 L 610 340 L 610 400 L 640 400" />
+  </circle>
+
+  <circle r="5" fill="#10b981" filter="url(#glow-green)">
+    <animateMotion dur="2.2s" repeatCount="indefinite" path="M 425 155 L 810 155 M 425 200 L 810 200" />
+  </circle>
+
+  <circle r="5" fill="#f59e0b" filter="url(#glow-gold)">
+    <animateMotion dur="1.8s" repeatCount="indefinite" path="M 890 230 L 890 280 M 890 350 L 890 380" />
+  </circle>
+
+  <circle r="5" fill="#10b981" filter="url(#glow-green)">
+    <animateMotion dur="2s" repeatCount="indefinite" path="M 890 450 L 890 490 L 520 490 L 520 530" />
+  </circle>
+  <circle r="4" fill="#38bdf8" filter="url(#glow-cyan)">
+    <animateMotion dur="2.8s" repeatCount="indefinite" path="M 770 400 L 800 400 L 800 500 L 260 500 L 260 530" />
+  </circle>
+
+  <circle r="4" fill="#f43f5e" filter="url(#glow-red)">
+    <animateMotion dur="4s" repeatCount="indefinite" path="M 975 315 L 1025 315 L 1025 565 L 750 565" />
+  </circle>
+
+  <!-- FOOTER SYSTEM TELEMETRY -->
+  <line x1="25" y1="680" x2="1075" y2="680" stroke="#1e293b" stroke-width="1" />
+  <text x="25" y="694" class="status">● ORCHESTRATION: LANGGRAPH + FASTAPI</text>
+  <text x="360" y="694" class="status" fill="#a855f7">STT: GROQ WHISPER-V3 TURBO</text>
+  <text x="640" y="694" class="status" fill="#f59e0b">GROUNDING: CITATION SHIELD (≥ 0.72)</text>
+  <text x="910" y="694" class="status" fill="#38bdf8">RATE GATE: REDIS 14.4k TPM</text>
+</svg>
