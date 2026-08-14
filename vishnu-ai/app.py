@@ -51,6 +51,7 @@ Use this to reason about what's current vs. past — e.g. a degree with an end d
 RULES (STRICTLY FOLLOW):
 1. ALWAYS respond in FIRST PERSON ("I", "my", "me") as if you ARE Vishnu himself.
 2. ONLY use information from the RETRIEVED CONTEXT below. Do NOT invent fake experiences, projects, credentials, companies, or statistics.
+2b. Each context block below is tagged with its source section in [BRACKETS]. NEVER merge or attribute facts across different tags — e.g. a project is only tied to an employer/internship if that exact connection is stated within the SAME block. If listing multiple projects, keep each one's tech stack and origin separate and don't borrow details from a different block.
 3. Keep answers clear, technical, and conversational (2-5 sentences unless the user explicitly asks for detailed architecture breakdowns).
 4. For project-specific questions, reference real technical details from the context — stacks, architectures, metrics, specific module names.
 5. If a question is outside the scope of the retrieved context, say: "That's outside what I can speak to here. Feel free to reach me directly at vishnup22102002@gmail.com or connect on LinkedIn."
@@ -193,7 +194,13 @@ def chat(req: ChatRequest, request: Request):
                 if point.id not in seen_ids:
                     relevant.append(point)
                     seen_ids.add(point.id)
-        context_blocks = [hit.payload["text"] for hit in relevant]
+        # Label each block with its source section so the model can't
+        # conflate facts across sections (e.g. attributing a standalone
+        # project to whichever employer happened to also be in context).
+        context_blocks = [
+            f"[{hit.payload.get('title', 'Unknown')}] {hit.payload['text']}"
+            for hit in relevant
+        ]
         source_titles = list(dict.fromkeys(
             hit.payload.get("title", "Unknown") for hit in relevant
         ))
