@@ -1220,58 +1220,113 @@
       .dot {
         animation: none !important
       }
+
+      #ai-chat-btn,
+      .ai-thought {
+        animation: none !important
+      }
     }
 
     /* ---------- VISHNU AI CHATBOT ---------- */
-    #ai-chat-btn {
+    #ai-chat-launcher {
       position: fixed;
       bottom: 28px;
       right: 28px;
       z-index: 999;
       display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 22px;
-      border-radius: 999px;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    #ai-chat-btn {
+      width: 68px;
+      height: 68px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      padding: 0;
       background: #0D1117;
-      color: #C9D1D9;
-      border: 1px solid rgba(255, 255, 255, .1);
+      border: 2px solid rgba(126, 231, 135, .45);
       box-shadow:
         0 0 0 1px rgba(255, 255, 255, .04),
-        0 12px 40px rgba(0, 0, 0, .35);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 12.5px;
-      letter-spacing: .04em;
+        0 12px 40px rgba(0, 0, 0, .35),
+        0 0 22px rgba(27, 47, 181, .35);
       cursor: pointer;
-      transition: transform .25s, background .25s, box-shadow .25s;
+      overflow: hidden;
+      animation: aiBob 2.8s ease-in-out infinite;
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+    }
+
+    #ai-chat-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
     }
 
     #ai-chat-btn:hover {
-      transform: translateY(-3px);
-      background: var(--accent);
-      color: #fff;
-      box-shadow: 0 14px 44px rgba(27, 47, 181, .25);
+      animation-play-state: paused;
+      transform: translateY(-4px) scale(1.06);
+      border-color: var(--accent);
+      box-shadow:
+        0 14px 44px rgba(27, 47, 181, .4),
+        0 0 30px rgba(27, 47, 181, .5);
     }
 
-    #ai-chat-btn .btn-pulse {
-      width: 8px;
-      height: 8px;
+    @keyframes aiBob {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25%      { transform: translateY(-7px) rotate(-4deg); }
+      50%      { transform: translateY(0) rotate(0deg); }
+      75%      { transform: translateY(-3px) rotate(4deg); }
+    }
+
+    .ai-thought {
+      position: relative;
+      margin-bottom: 14px;
+      margin-right: 10px;
+      padding: 9px 16px;
+      background: #161B22;
+      border: 1px solid rgba(126, 231, 135, .3);
+      border-radius: 18px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      letter-spacing: .02em;
+      color: #C9D1D9;
+      white-space: nowrap;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+      animation: thoughtFloat 3s ease-in-out infinite;
+      pointer-events: none;
+      transition: opacity .25s ease, visibility .25s ease;
+    }
+
+    .ai-thought i {
+      position: absolute;
+      display: block;
+      background: #161B22;
+      border: 1px solid rgba(126, 231, 135, .3);
       border-radius: 50%;
-      background: #7EE787;
-      animation: chatPulse 2s ease-in-out infinite;
     }
 
-    @keyframes chatPulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: .5; transform: scale(1.4); }
+    .ai-thought i:nth-child(2) { width: 10px; height: 10px; bottom: -15px; right: 26px; }
+    .ai-thought i:nth-child(3) { width: 6px;  height: 6px;  bottom: -23px; right: 17px; }
+    .ai-thought i:nth-child(4) { width: 4px;  height: 4px;  bottom: -29px; right: 10px; }
+
+    @keyframes thoughtFloat {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-4px); }
+    }
+
+    #ai-chat-launcher.chat-open .ai-thought {
+      opacity: 0;
+      visibility: hidden;
     }
 
     #ai-chat-drawer {
       position: fixed;
-      bottom: 88px;
+      bottom: 108px;
       right: 28px;
       width: min(420px, calc(100vw - 40px));
-      height: min(560px, calc(100vh - 120px));
+      height: min(560px, calc(100vh - 140px));
       z-index: 1000;
       background: #0D1117;
       border: 1px solid rgba(255, 255, 255, .08);
@@ -1285,13 +1340,28 @@
       overflow: hidden;
       font-family: "JetBrains Mono", monospace;
       color: #C9D1D9;
-      transition: opacity .3s ease, transform .3s ease;
+      transition: opacity .3s ease, transform .3s ease, width .25s ease, height .25s ease;
     }
 
     #ai-chat-drawer.hidden {
       opacity: 0;
       pointer-events: none;
       transform: translateY(16px) scale(.97);
+    }
+
+    #ai-chat-drawer.chat-maximized {
+      width: min(600px, calc(100vw - 24px));
+      height: min(780px, calc(100vh - 60px));
+    }
+
+    #ai-chat-drawer.chat-minimized {
+      height: 50px;
+    }
+
+    #ai-chat-drawer.chat-minimized #chat-messages,
+    #ai-chat-drawer.chat-minimized .chat-chips,
+    #ai-chat-drawer.chat-minimized #chat-form {
+      display: none;
     }
 
     .chat-bar {
@@ -1313,6 +1383,13 @@
       width: 12px;
       height: 12px;
       border-radius: 50%;
+      cursor: pointer;
+      transition: filter .15s, transform .15s;
+    }
+
+    .chat-bar .chat-dots span:hover {
+      filter: brightness(1.25);
+      transform: scale(1.12);
     }
 
     .chat-bar .cd-r { background: #FF5F56; }
@@ -1352,6 +1429,7 @@
 
     #chat-messages {
       flex: 1;
+      min-height: 0;
       padding: 18px 16px;
       overflow-y: auto;
       display: flex;
@@ -1476,14 +1554,19 @@
     }
 
     @media (max-width: 600px) {
-      #ai-chat-btn .btn-label { display: none; }
-      #ai-chat-btn { padding: 12px 14px; }
+      #ai-chat-launcher { right: 16px; bottom: 20px; }
+      #ai-chat-btn { width: 56px; height: 56px; }
+      .ai-thought { font-size: 10px; padding: 7px 12px; }
       #ai-chat-drawer {
         right: 8px;
-        bottom: 78px;
+        bottom: 88px;
         width: calc(100vw - 16px);
-        height: calc(100vh - 100px);
+        height: calc(100vh - 110px);
         border-radius: 14px;
+      }
+      #ai-chat-drawer.chat-maximized {
+        width: calc(100vw - 16px);
+        height: calc(100vh - 110px);
       }
     }
   </style>
@@ -1860,14 +1943,23 @@
   </section>
 
   <!-- ============ VISHNU AI CHATBOT ============ -->
-  <button id="ai-chat-btn" aria-label="Ask Vishnu AI">
-    <span class="btn-pulse"></span>
-    <span class="btn-label">Ask Vishnu AI</span>
-  </button>
+  <div id="ai-chat-launcher">
+    <div class="ai-thought" id="ai-thought">
+      <span>click to know about me</span>
+      <i></i><i></i><i></i>
+    </div>
+    <button id="ai-chat-btn" aria-label="Ask Vishnu AI">
+      <img src="assets/vishnu-ai-avatar.png" alt="Vishnu AI" />
+    </button>
+  </div>
 
   <div id="ai-chat-drawer" class="hidden">
     <div class="chat-bar">
-      <div class="chat-dots"><span class="cd-r"></span><span class="cd-y"></span><span class="cd-g"></span></div>
+      <div class="chat-dots">
+        <span class="cd-r" id="chat-dot-close" title="Close"></span>
+        <span class="cd-y" id="chat-dot-min" title="Minimize"></span>
+        <span class="cd-g" id="chat-dot-max" title="Maximize"></span>
+      </div>
       <div class="chat-title"><span class="chat-status"></span>vishnu-ai · online</div>
       <button id="chat-close-btn">&times;</button>
     </div>
@@ -2244,23 +2336,53 @@
   <script>
     (() => {
       const API = 'https://portfolio-e1gb.onrender.com/chat';
+      const launcher = document.getElementById('ai-chat-launcher');
       const btn = document.getElementById('ai-chat-btn');
       const drawer = document.getElementById('ai-chat-drawer');
       const closeBtn = document.getElementById('chat-close-btn');
+      const dotClose = document.getElementById('chat-dot-close');
+      const dotMin = document.getElementById('chat-dot-min');
+      const dotMax = document.getElementById('chat-dot-max');
       const form = document.getElementById('chat-form');
       const input = document.getElementById('chat-input');
       const msgs = document.getElementById('chat-messages');
 
+      // Thought bubble: show until the user has opened the chat once
+      if (localStorage.getItem('vishnuAiThoughtSeen')) {
+        launcher.classList.add('chat-open');
+      }
+
+      function openDrawer() {
+        drawer.classList.remove('hidden');
+        launcher.classList.add('chat-open');
+        localStorage.setItem('vishnuAiThoughtSeen', '1');
+        input.focus();
+      }
+      function closeDrawer() {
+        drawer.classList.add('hidden');
+      }
+
       // Toggle drawer
       btn.addEventListener('click', () => {
-        drawer.classList.toggle('hidden');
-        if (!drawer.classList.contains('hidden')) input.focus();
+        if (drawer.classList.contains('hidden')) openDrawer();
+        else closeDrawer();
       });
-      closeBtn.addEventListener('click', () => drawer.classList.add('hidden'));
+      closeBtn.addEventListener('click', closeDrawer);
+
+      // Traffic-light controls
+      dotClose.addEventListener('click', closeDrawer);
+      dotMin.addEventListener('click', () => {
+        drawer.classList.toggle('chat-minimized');
+        drawer.classList.remove('chat-maximized');
+      });
+      dotMax.addEventListener('click', () => {
+        drawer.classList.toggle('chat-maximized');
+        drawer.classList.remove('chat-minimized');
+      });
 
       // Escape key closes
       document.addEventListener('keydown', e => {
-        if (e.key === 'Escape' && !drawer.classList.contains('hidden')) drawer.classList.add('hidden');
+        if (e.key === 'Escape' && !drawer.classList.contains('hidden')) closeDrawer();
       });
 
       // Chip buttons
