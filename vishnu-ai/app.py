@@ -5,12 +5,15 @@ Retrieves context from Qdrant Cloud and generates grounded responses via Groq.
 import os
 import time
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from sentence_transformers import SentenceTransformer
 from qdrant_client import QdrantClient
 from groq import Groq
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.util import get_remote_address
+from slowapi.errors import RateLimitExceeded
 
 
 # ─── Configuration ───────────────────────────────────────────────
@@ -69,13 +72,21 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-# CORS — allow portfolio frontend from any origin
+limiter = Limiter(key_func=get_remote_address)
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
+# CORS — restrict to the deployed frontend + local dev
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=[
+        "https://vishnup.vercel.app",
+        "http://localhost:5500",
+        "http://127.0.0.1:5500",
+    ],
+    allow_credentials=False,
+    allow_methods=["POST", "GET"],
+    allow_headers=["Content-Type"],
 )
 
 
@@ -117,7 +128,8 @@ def health():
 
 
 @app.post("/chat", response_model=ChatResponse)
-def chat(req: ChatRequest):
+@limiter.limit("10/minute")
+def chat(req: ChatRequest, request: Request):
     """Main RAG chat endpoint."""
     if not req.message.strip():
         raise HTTPException(status_code=400, detail="Message cannot be empty.")
@@ -168,7 +180,11 @@ def chat(req: ChatRequest):
         )
 
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"RAG pipeline error: {str(e)}")
+        print(f"[chat] RAG pipeline error: {e}")
+        raise HTTPException(
+            status_code=500,
+            detail="Something went wrong on my end — try again in a moment, or reach me directly at vishnup22102002@gmail.com.",
+        )
 
 
 # ─── Local dev runner ────────────────────────────────────────────
