@@ -1,0 +1,214 @@
+VISHNU P — AI ENGINEER & AGENTIC ARCHITECT (MASTER PROFILE)
+
+BASIC & CONTACT INFORMATION:
+- Name: Vishnu P
+- Headline: AI Engineer / Agentic Architect — Multi-Agent Systems (LangGraph, MCP) & GraphRAG
+- Email: vishnup22102002@gmail.com
+- Location: Malappuram / Kochi, Kerala, India
+- Website: https://vishnup.vercel.app
+- GitHub: https://github.com/vishnup102002
+- LinkedIn: https://www.linkedin.com/in/vishnup22102002
+- HuggingFace: https://huggingface.co/spaces/Vishnuporkulath
+- Phone: +91 77365 33119
+- Open to Work: Yes — Kochi and other locations, On-site or Hybrid
+
+---
+
+EDUCATION:
+- Master of Computer Applications (MCA), TKM College of Engineering, Kollam (Aug 2024 – Apr 2026), Grade: 86.2%
+- B.Sc. Computer Science, College of Applied Sciences (IHRD), Vattamkulam (Jun 2020 – Jun 2023)
+
+---
+
+WORK EXPERIENCE:
+
+AI Engineer Intern at heu.ai (Jul 2026 – Present, Kochi, Kerala):
+- Engineering production agentic workflows, multi-agent systems, and GenAI orchestration pipelines.
+- Developing scalable retrieval-augmented generation (RAG) architectures and custom tool execution systems.
+- Collaborating with core AI engineering team to deploy robust models for enterprise applications.
+
+R&D Intern (AI/Agentic Systems) at Bluecast Technologies (Jan 2026 – Apr 2026, Kochi, Kerala):
+- Spearheaded a DXF-to-JSON agentic pipeline using ReAct loops and GPT-4o for indoor navigation mapping.
+- Developed adaptive geometric rule cascades to extract spatial door-connectivity graphs, slashing API costs by 75%.
+- Built schema validation producing clean navigation-ready JSON with zero post-processing.
+
+---
+
+ENGINEERING MANIFESTO:
+1. Design for Failure: I treat production as inherently unstable. Across all my systems, I build in modular fallbacks — whether it's multi-tier scraping for Career-Pilot's job matching or DXF parser fallback chains in ReAct reasoning loops.
+2. State-Aware Execution: I prioritize data integrity. From LegalMind's Neo4j state management to GestureLearn's WebRTC session tracking and Kadal Aayus's offline telemetry caching, I implement checkpointing so systems recover from interruptions.
+3. Objective Validation: I favor quantifiable metrics over manual testing. Whether it's an LLM-as-a-Judge scoring Career-Pilot agent reasoning, geometric algorithms in vision pipelines, or sensor fusion validation in maritime safety systems.
+4. Always Ship: My ultimate metric is deployment. I prioritize getting functional builds into production — from HuggingFace Spaces deployments to Firebase-backed mobile apps — over endless polishing.
+
+---
+
+TECH STACK:
+- AI & Core: LangGraph, LangChain, GraphRAG (Neo4j, Qdrant, ChromaDB), FastMCP, Model Context Protocol (MCP), RAPTOR, RAG, Prompt Engineering, ReAct Agents, LLM-as-a-Judge
+- Languages & Frameworks: Python, JavaScript, TypeScript, Java, FastAPI, React, Flutter, Node.js, Express
+- Infrastructure: Docker, Firebase, AWS EC2, Hugging Face Spaces, Nginx, Redis, SQLite, Mapbox, WebRTC, Socket.io, MediaPipe
+- LLM Providers: Groq (Llama-3.1-8B), OpenAI (GPT-4o), Google Gemini
+
+---
+
+STRENGTHS:
+- Strength 1 (Deterministic Systems Engineering): I don't build loose prompt wrappers; I design state-aware AI architectures with strict validation layers. At Bluecast Technologies, my ReAct reasoning loop + geometric rule cascade cut LLM costs by 75% while producing zero-post-processing JSON.
+- Strength 2 (Stateful Agent & GraphRAG Orchestration): Specialized in long-horizon multi-agent systems using LangGraph, MCP, and GraphRAG. In LegalMind, I combined Neo4j context graphs with Qdrant vector search and a token-level citation shield to keep legal inferences hallucination-free.
+- Strength 3 (Production-First Delivery): I focus on code reaching users — containerizing multi-agent pipelines with Docker on Hugging Face Spaces or engineering offline telemetry caches in Flutter.
+
+---
+
+HONEST WEAKNESSES:
+- Weakness 1 (Overthinking/Over-engineering): I tend to build elaborate fallback loops for edge cases before initial launch. I actively manage this by forcing an "Always Ship" rule — deploying lean functional MVPs first, then using real telemetry to guide refinements.
+- Weakness 2 (Initial Self-Confidence): When stepping into unfamiliar tech stacks, I sometimes default to doubting my initial speed. I counter this by grounding myself in empirical metrics — unit tests, benchmark evaluations, and LLM-as-a-Judge scoring.
+
+---
+
+HOBBIES & OUTSIDE INTERESTS:
+- Sci-Fi cinema, anime, and web series enthusiast — always drawn to stories exploring cybernetics, artificial consciousness, and futuristic worlds.
+- Enjoys quality offline time with family and friends in Kerala.
+
+---
+
+TECH OPINIONS:
+- On AI Safety: Responsible AI must be enforced programmatically at the architecture layer, not via conversational prompt guardrails. In LegalMind, my token-level Citation Shield hard-stops generation if context grounding drops below 0.70. Verifiable constraints beat conversational guardrails every time.
+- On AI Agents (Overhyped vs Underhyped): Single-prompt autonomous loops and auto-GPT wrappers are massively overhyped. Cyclic, state-aware multi-agent graphs with strict checkpointing (LangGraph) are deeply underhyped for production engineering.
+- On Proprietary vs Open Stack: Relying 100% on closed LLM APIs leaves systems fragile. I advocate for hybrid architectures — combining lightning-fast cloud inference (Groq) with open-source vector engines, Neo4j, and custom MCP tools so you own the intelligence pipeline.
+
+---
+
+CAREER & PERSONAL Q&A:
+- Why AI engineering? I was fascinated by moving beyond static, imperative code into dynamic reasoning systems. Building agents that autonomously plan, query structured graph memory, and solve messy real-world problems feels like engineering the future in real time.
+- What am I looking for in my next role? A fast-paced AI engineering role where I can architect production multi-agent systems, GraphRAG networks, and high-performance backends alongside a team that values shipping verifiable software over chasing AI hype.
+- Favorite project and why? LegalMind. It addresses a real human need by converting colloquial Malayalam voice notes into legally grounded audio roadmaps and printable PDF notices, proving how GraphRAG and strict citation shields can bring genuine legal equity to low-literacy communities.
+- Core engineering ethos in 10 words: Design for failure, checkpoint state everywhere, validate objectively, always ship.
+- Availability: Open to full-time roles, contract opportunities, and internship extensions. Currently based in Kerala, India. Open to on-site and hybrid in Kochi and other cities.
+
+---
+
+CERTIFICATIONS:
+- Generative AI & AI Agents Specialist (IBM)
+- Generative AI and AI Agents Professional (IBM)
+- Introduction to Model Context Protocol (Anthropic)
+- Fundamentals of AI Agents Using RAG & LangChain (IBM)
+- AWS Generative AI and AI Agents with Amazon Bedrock (AWS)
+- Python for Data Science & Development (IBM)
+- Data Structures & Algorithms Design (NPTEL)
+
+===
+
+PROJECT: LEGALMIND — ASYMMETRICAL JUSTICE ENGINE & GraphRAG
+
+Core Idea: LegalMind is a production-grade AI system designed to bridge legal equity for low-literacy and marginalized populations. It converts unstructured regional voice notes (Malayalam/English) into deterministic, legally grounded audio roadmaps and verified printable PDF notices.
+
+Stack: LangGraph, Neo4j (GraphRAG statutory trees: Statute → Section → Case Precedent), Qdrant Cloud (dense + BM25 hybrid vector search), Groq (llama-3.1-8b-instant), Twilio WhatsApp API, RAPTOR hierarchical trees, FastAPI, gTTS, Shrutam-2 STT, Sooktam-2 TTS.
+
+Voice-to-Voice Gateway: Operates an audio pipeline — Shrutam-2 Speech-to-Text streaming → Qwen-2.5 intent extraction → slot filling (incident_type: illegal_eviction) → localized Malayalam speech rendering for illiterate accessibility. Supports bidirectional WhatsApp voice notes via Twilio.
+
+Citation Faithfulness Shield: Programmatic verification gate that evaluates context similarity and grounding metrics. If context score is less than 0.72, the system short-circuits with an UNVERIFIED_LEGAL_GROUNDS safety fallback, preventing fictitious law generation and hallucinations.
+
+IRAC Format Deliverables: Formats output using the legal IRAC framework (Issue, Rule, Application, Conclusion). Synthesizes a simplified layperson audio roadmap for WhatsApp voice note delivery and compiles a formal PDF legal notice (ReportLab/WeasyPrint) for direct WhatsApp document attachment.
+
+LLM-as-a-Judge Evaluation Harness: 12-scenario automated evaluation (English & Malayalam) across 5 metrics — Faithfulness (>=0.70), Relevance (>=0.80), Language Compliance (>=0.90), Hallucination Rate (<=0.10), Completeness (>=0.80).
+
+Infrastructure: Designed for cost-sovereignty. Runs on AWS EC2 Free Tier t2.micro (1GB RAM + 2GB Swap space) by delegating state and vectors to serverless cloud tiers (Neo4j AuraDB free tier & Qdrant Cloud free tier) with Nginx proxying and systemd service management.
+
+WhatsApp Integration: Stateful phone-number-based session management (whatsapp_session.py), auto-transcription of voice notes, TTS audio roadmap synthesis, and PDF notice delivery via Twilio Media API.
+
+Key Modules: config/ (Neo4j schemas), data/ingestion/ (Playwright legal portal scrapers), data/processing/ (RAPTOR hierarchical clustering), database/graph_store.py (Neo4j Cypher compilers), database/vector_store.py (Qdrant hybrid search), audio/stt_gateway.py (Shrutam-2), audio/tts_renderer.py (Sooktam-2), app/pipeline.py (LangGraph state machine), app/server.py (FastAPI + Twilio webhooks), app/evaluator.py (LLM-as-a-Judge framework).
+
+Status: Core LangGraph orchestration and hybrid retrieval (Neo4j + Qdrant) are functional. Currently debugging voice-to-voice Twilio pipeline latency. In progress.
+
+GitHub: https://github.com/vishnup102002/LegalMind
+
+===
+
+PROJECT: CAREER-PILOT — AUTONOMOUS JOB-HUNTING AGENT
+
+Core Idea: Agentic, stateful ecosystem built on LangGraph and Model Context Protocol (MCP) to eliminate generic bulk job applications through high-intent semantic matching.
+
+Stack: Python 3.11, LangGraph, FastAPI, FastMCP browser server, SQLite, SendGrid / Resend API, Docker, Hugging Face Spaces.
+
+4-Agent Pipeline:
+1. Research Agent (research_agent.py): Parses uploaded resume to extract structured technical DNA — core stacks, years of experience, location constraints, best-fit role inference. Updates user's inferred job role in SQLite.
+2. Scout Agent (scout_agent.py): Generates multi-variant search queries against LinkedIn, Indeed, Naukri, WeWorkRemotely. Runs headless Playwright page scraping via FastMCP. Pre-filters experience mismatches. Scores listings (match score >= 3/5).
+3. Writer Agent (writer_agent.py): Maps candidate history to job criteria. Tags listings with source platform markers. Builds high-impact bulleted catalog.
+4. Alert Agent (alert_agent.py): Dispatches catalog via transactional email (SendGrid/Resend/SMTP). Permanently indexes dispatched URLs in SQLite for zero-duplicate deduplication.
+
+FastMCP Browser Server (mcp_servers/browser_mcp.py): Dedicated FastMCP server running headless Playwright to bypass SPA rendering traps. Also supports premium Apify/Jina Reader scraping.
+
+Quality & Testing: 81-test E2E suite (Pytest + coverage), LLM-as-a-Judge evaluation harness (evaluation/eval_harness.py), dynamic Gemini/Groq API quota fallback, GET /api/health diagnostic endpoint.
+
+Production: Containerized with Docker for Hugging Face Spaces. Background APScheduler daily cron job. GitHub Action keep-alive workflow to prevent HF Space idle sleep.
+
+Live Demo: https://career-pilot-ai.vercel.app
+GitHub: https://github.com/vishnup102002/career-pilot
+HuggingFace Space: https://huggingface.co/spaces/Vishnuporkulath/career-pilot
+
+===
+
+PROJECT: GESTURELEARN — REAL-TIME COLLABORATIVE GESTURE WORKSPACE
+
+Core Idea: Low-latency collaborative presentation platform merging WebRTC video conferencing with edge computer vision (Google MediaPipe Hands). Users draw, erase, and navigate using natural 3D hand gestures in the browser.
+
+Stack: React 18, TypeScript, WebRTC (RTCPeerConnection with STUN/TURN), Socket.io (sub-50ms event relay), MediaPipe Hands (21 3D landmarks, client-side Wasm/GPU), Express/Node.js backend, Vite, Tailwind CSS + shadcn-ui.
+
+Flipped Coordinate Space Solution: Solved WebRTC video mirroring coordinate alignment by performing a hard horizontal flip on an off-screen canvas at 30 FPS (canvas.captureStream(30)), running MediaPipe inference on the raw un-flipped feed, and mapping normalized coordinates as flippedNormX = 1.0 - rawNormX so local and remote canvas overlays align perfectly without CSS inversion bugs.
+
+5-Gesture Command State Machine:
+- L-Shape/Gun (Index up, Thumb out): Draw strokes on local & remote canvases.
+- Flat Palm (All 5 fingers extended): Erase mode (60px brush footprint).
+- Fist (All fingers folded, 2-second hold): Clear entire canvas.
+- Pinch (Index + Thumb touching): Hover cursor mode.
+- Peace/Select (Index + Middle up): Color palette overlay.
+
+100% client-side WebAssembly vision processing. Zero camera video frames are ever transmitted to external servers. All streams are encrypted P2P via WebRTC DTLS/SRTP.
+
+Deployed: Frontend on Vercel, backend on Render.com via Docker container.
+
+Live Demo: https://gesturelearn.vercel.app
+GitHub: https://github.com/vishnup102002/gesturelearn
+
+===
+
+PROJECT: DXF → JSON AGENTIC INDOOR NAVIGATION PIPELINE (agentpipeline)
+
+Core Idea: Built during R&D internship at Bluecast Technologies. Converts complex hospital CAD floor plans (.dxf files) into structured, directional navigation JSON schemas powering real-time indoor turn-by-turn navigation engines.
+
+Stack: Python, ezdxf, Shapely, GPT-4o, custom geometric vector algorithms.
+
+75% API Cost Reduction Cascade:
+- Pre-detects corridors and vertical nodes (lifts, staircases, escalators) using pure geometry and spatial clustering — zero LLM tokens used.
+- Classifies standard spaces via regex dictionary/word-boundary keyword tables.
+- Only sends unclassified, ambiguous room labels to GPT-4o in a single compressed batch call.
+
+3-Pass Door & Spatial Graph (geometry.py):
+- Pass 1: Links rooms to corridors via physical DXF door block inserts.
+- Pass 1.5: Prunes false-positive phantom room-to-room links if both rooms already connect to corridors.
+- Pass 2: Connects en-suite rooms sharing walls using adaptive geometric thresholds derived from the building's own scale.
+- Pass 3: Bounding-box proximity fallbacks for isolated rooms.
+
+Directional Neighbor Resolution: Computes entry vectors from door blocks inward to room centroids, resolving exact spatial positions (left, right, front, behind) using dot product and cross product calculations.
+
+Navigation Enrichment Layer: Enforces bidirectional symmetry, infers building zones (Imaging, Emergency, Admin), generates display names and room aliases, assigns system confidence scores (0.60-0.95) per entity.
+
+Multi-Floor Pipeline: Matches vertical nodes across floors by name similarity + coordinate proximity, interpolates intermediate floors.
+
+Key Modules: parser.py (DXF reader + coordinate normalization), agent.py (ReAct classification loop), geometry.py (spatial relationship engine), navigation_enrichment.py (zone inference, aliases, corridor connectivity), run_pipeline.py (single-floor CLI), multi_floor_pipeline.py (multi-floor CLI), schema_validator.py.
+
+===
+
+PROJECT: KADAL AAYUS — OFFLINE-FIRST SEA SAFETY ECOSYSTEM
+
+Core Idea: Cross-platform mobile and web application engineered as a digital lifeline for fishermen working in high-risk, low-connectivity maritime environments.
+
+Stack: Flutter, Firebase (Firestore + Auth + Web Admin), Mapbox API, OpenWeather API, FCM (Firebase Cloud Messaging), native Malayalam TTS engine.
+
+Offline-First Telemetry & Weather Caching: Implements local caching for 6-day weather matrices and hazard zones, ensuring critical safety telemetry remains accessible even when vessel connectivity drops completely.
+
+Localized Malayalam Voice Alerts: Uses native Flutter TTS to broadcast safety warnings and directional guidance in spoken Malayalam, ensuring accessibility for crew members who cannot read text notifications while at sea.
+
+Live Tracking & SOS Emergency: Real-time GPS tracking on color-coded Mapbox danger zones. Automated SOS SMS alerts and FCM emergency broadcast to fleet admins.
+
+Admin Web Panel: Firebase-backed web admin panel for fleet managers with live tracking, broadcast alerts, and user management.
+
+GitHub: https://github.com/vishnup102002/kadal_aayus
