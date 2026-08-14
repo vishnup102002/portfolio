@@ -96,6 +96,15 @@ CERTIFICATIONS:
 
 ===
 
+PROJECT TIMELINE (most recent first):
+1. LegalMind — current project, in progress.
+2. Career-Pilot — worked on before LegalMind.
+3. GestureLearn — worked on before Career-Pilot.
+4. Kadal Aayus — the oldest of these, worked on before GestureLearn.
+(The DXF → JSON indoor navigation pipeline was built separately during the Bluecast Technologies R&D internship, Jan–Apr 2026 — see WORK EXPERIENCE.)
+
+===
+
 PROJECT: LEGALMIND — ASYMMETRICAL JUSTICE ENGINE & GraphRAG
 
 Core Idea: LegalMind is a production-grade AI system designed to bridge legal equity for low-literacy and marginalized populations. It converts unstructured regional voice notes (Malayalam/English) into deterministic, legally grounded audio roadmaps and verified printable PDF notices.
