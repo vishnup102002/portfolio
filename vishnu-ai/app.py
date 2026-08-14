@@ -129,11 +129,11 @@ def chat(req: ChatRequest):
         query_vector = encoder.encode(req.message).tolist()
 
         # 2. Retrieve top-k relevant chunks from Qdrant
-        results = qdrant.search(
+        results = qdrant.query_points(
             collection_name=COLLECTION,
-            query_vector=query_vector,
+            query=query_vector,
             limit=TOP_K,
-        )
+        ).points
 
         # 3. Filter by minimum similarity score
         relevant = [hit for hit in results if hit.score >= MIN_SCORE]
