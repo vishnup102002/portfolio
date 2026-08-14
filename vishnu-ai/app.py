@@ -16,6 +16,16 @@ from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 
 
+def get_client_ip(request: Request) -> str:
+    """Render/Cloudflare front this app, so request.client.host is an
+    internal proxy IP, not the real visitor — read the forwarded chain
+    instead so per-IP rate limiting actually works."""
+    forwarded = request.headers.get("x-forwarded-for")
+    if forwarded:
+        return forwarded.split(",")[0].strip()
+    return get_remote_address(request)
+
+
 # ─── Configuration ───────────────────────────────────────────────
 QDRANT_HOST = os.getenv("QDRANT_HOST", "")
 QDRANT_API_KEY = os.getenv("QDRANT_API_KEY", "")
@@ -72,7 +82,7 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-limiter = Limiter(key_func=get_remote_address)
+limiter = Limiter(key_func=get_client_ip)
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
