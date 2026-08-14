@@ -178,16 +178,21 @@ def chat(req: ChatRequest, request: Request):
 
         # Always ground on current-role facts regardless of query phrasing —
         # "what do you do now" shouldn't depend on retrieval scoring luck.
-        seen_titles = {hit.payload.get("title") for hit in relevant}
+        # Dedup by point id, NOT title: several distinct chunks (e.g. two
+        # separate work-experience entries) can share the same title, so
+        # skipping a title just because one of its chunks already surfaced
+        # would silently drop its siblings.
+        seen_ids = {hit.id for hit in relevant}
         for title in ALWAYS_FACT_TITLES:
-            if title in seen_titles:
-                continue
             extra, _ = qdrant.scroll(
                 collection_name=COLLECTION,
                 scroll_filter=Filter(must=[FieldCondition(key="title", match=MatchValue(value=title))]),
-                limit=3,
+                limit=10,
             )
-            relevant.extend(extra)
+            for point in extra:
+                if point.id not in seen_ids:
+                    relevant.append(point)
+                    seen_ids.add(point.id)
         context_blocks = [hit.payload["text"] for hit in relevant]
         source_titles = list(dict.fromkeys(
             hit.payload.get("title", "Unknown") for hit in relevant
