@@ -1,0 +1,13 @@
+name: Keep Vishnu AI backend warm
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping /health
+        run: curl -sS -m 20 https://portfolio-e1gb.onrender.com/health
