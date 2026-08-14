@@ -2269,9 +2269,13 @@
 
           await new Promise(r => setTimeout(r, 150));
 
+          let lineCount = 0;
           for (const [text, cls] of skillData) {
             await typeLine(text, cls);
             await new Promise(r => setTimeout(r, text ? 35 : 15));
+            // terminal body grows while typing (min-height -> max-height cap),
+            // which shifts every section below it — keep ScrollTrigger in sync
+            if (++lineCount % 6 === 0) ScrollTrigger.refresh();
           }
 
           // final prompt
@@ -2280,6 +2284,7 @@
           finalLine.innerHTML = '❯ <span class="term-block-cursor"></span>';
           output.appendChild(finalLine);
           termBody.scrollTop = termBody.scrollHeight;
+          ScrollTrigger.refresh();
         }
 
         // detect when terminal is in viewport
