@@ -1296,7 +1296,14 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
       animation: thoughtFloat 3s ease-in-out infinite;
       pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
       transition: opacity .25s ease, visibility .25s ease;
+    }
+
+    #ai-chat-launcher:hover:not(.chat-open) .ai-thought {
+      opacity: 1;
+      visibility: visible;
     }
 
     .ai-thought i {
@@ -1314,11 +1321,6 @@
     @keyframes thoughtFloat {
       0%, 100% { transform: translateY(0); }
       50%      { transform: translateY(-4px); }
-    }
-
-    #ai-chat-launcher.chat-open .ai-thought {
-      opacity: 0;
-      visibility: hidden;
     }
 
     #ai-chat-drawer {
@@ -2347,19 +2349,14 @@
       const input = document.getElementById('chat-input');
       const msgs = document.getElementById('chat-messages');
 
-      // Thought bubble: show until the user has opened the chat once
-      if (localStorage.getItem('vishnuAiThoughtSeen')) {
-        launcher.classList.add('chat-open');
-      }
-
       function openDrawer() {
         drawer.classList.remove('hidden');
         launcher.classList.add('chat-open');
-        localStorage.setItem('vishnuAiThoughtSeen', '1');
         input.focus();
       }
       function closeDrawer() {
         drawer.classList.add('hidden');
+        launcher.classList.remove('chat-open');
       }
 
       // Toggle drawer
