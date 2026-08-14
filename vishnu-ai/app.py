@@ -147,8 +147,13 @@ def chat(req: ChatRequest, request: Request):
             limit=TOP_K,
         ).points
 
-        # 3. Filter by minimum similarity score
+        # 3. Filter by minimum similarity score — but always keep the top
+        # match as a fallback, since generic queries ("tell me about
+        # yourself") score low against third-person profile text even
+        # when the top result is genuinely the right context.
         relevant = [hit for hit in results if hit.score >= MIN_SCORE]
+        if not relevant and results:
+            relevant = results[:1]
         context_blocks = [hit.payload["text"] for hit in relevant]
         source_titles = list(dict.fromkeys(
             hit.payload.get("title", "Unknown") for hit in relevant
