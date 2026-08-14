@@ -941,18 +941,6 @@
       gap: 8px;
     }
 
-    .term-hint kbd {
-      display: inline-block;
-      padding: 2px 8px;
-      border: 1px solid #30363D;
-      border-radius: 4px;
-      background: #161B22;
-      color: #7EE787;
-      font-family: inherit;
-      font-size: 10px;
-      line-height: 1.6;
-    }
-
     .term-hint.hidden {
       display: none
     }
@@ -1848,7 +1836,7 @@
               id="term-cursor"></span>
           </div>
           <div class="term-hint" id="term-hint">
-            <kbd>Enter ↵</kbd> <span>to run</span>
+            <span>auto-loading on scroll…</span>
           </div>
           <div class="term-output" id="term-output"></div>
         </div>
@@ -2186,7 +2174,6 @@
         if (!terminal || !output) return;
 
         let hasRun = false;
-        let isInView = false;
 
         // skill data — each entry: [text, cssClass]
         const skillData = [
@@ -2260,9 +2247,11 @@
         }
 
         // stream all lines sequentially
+        let isDone = false;
         async function runTerminal() {
           if (hasRun) return;
           hasRun = true;
+          isDone = false;
           terminal.classList.add('ran');
           hint.classList.add('hidden');
           cursor.style.display = 'none';
@@ -2285,30 +2274,28 @@
           output.appendChild(finalLine);
           termBody.scrollTop = termBody.scrollHeight;
           ScrollTrigger.refresh();
+          isDone = true;
         }
 
-        // detect when terminal is in viewport
+        function replayTerminal() {
+          hasRun = false;
+          isDone = false;
+          output.innerHTML = '';
+          runTerminal();
+        }
+
+        // auto-play as soon as the terminal scrolls into view
         ScrollTrigger.create({
           trigger: terminal,
           start: 'top 80%',
           end: 'bottom 20%',
-          onEnter: () => { isInView = true; },
-          onLeave: () => { isInView = false; },
-          onEnterBack: () => { isInView = true; },
-          onLeaveBack: () => { isInView = false; },
+          onEnter: runTerminal,
+          onEnterBack: runTerminal,
         });
 
-        // Enter key listener
-        document.addEventListener('keydown', e => {
-          if (e.key === 'Enter' && isInView && !hasRun) {
-            e.preventDefault();
-            runTerminal();
-          }
-        });
-
-        // Click/tap on terminal (mobile support)
+        // click/tap to replay once it's finished
         terminal.addEventListener('click', () => {
-          if (!hasRun) runTerminal();
+          if (isDone) replayTerminal();
         });
       })();
 
