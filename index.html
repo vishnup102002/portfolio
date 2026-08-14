@@ -1221,6 +1221,271 @@
         animation: none !important
       }
     }
+
+    /* ---------- VISHNU AI CHATBOT ---------- */
+    #ai-chat-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: #0D1117;
+      color: #C9D1D9;
+      border: 1px solid rgba(255, 255, 255, .1);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, .04),
+        0 12px 40px rgba(0, 0, 0, .35);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12.5px;
+      letter-spacing: .04em;
+      cursor: pointer;
+      transition: transform .25s, background .25s, box-shadow .25s;
+    }
+
+    #ai-chat-btn:hover {
+      transform: translateY(-3px);
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 14px 44px rgba(27, 47, 181, .25);
+    }
+
+    #ai-chat-btn .btn-pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #7EE787;
+      animation: chatPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes chatPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(1.4); }
+    }
+
+    #ai-chat-drawer {
+      position: fixed;
+      bottom: 88px;
+      right: 28px;
+      width: min(420px, calc(100vw - 40px));
+      height: min(560px, calc(100vh - 120px));
+      z-index: 1000;
+      background: #0D1117;
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 16px;
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, .04),
+        0 24px 80px rgba(0, 0, 0, .5),
+        0 8px 24px rgba(0, 0, 0, .25);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      font-family: "JetBrains Mono", monospace;
+      color: #C9D1D9;
+      transition: opacity .3s ease, transform .3s ease;
+    }
+
+    #ai-chat-drawer.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(16px) scale(.97);
+    }
+
+    .chat-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 18px;
+      background: #161B22;
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      user-select: none;
+    }
+
+    .chat-bar .chat-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .chat-bar .chat-dots span {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .chat-bar .cd-r { background: #FF5F56; }
+    .chat-bar .cd-y { background: #FFBD2E; }
+    .chat-bar .cd-g { background: #27C93F; }
+
+    .chat-bar .chat-title {
+      flex: 1;
+      text-align: center;
+      font-size: 11.5px;
+      color: #484F58;
+      letter-spacing: .04em;
+    }
+
+    .chat-bar .chat-title .chat-status {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #7EE787;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+
+    #chat-close-btn {
+      background: none;
+      border: none;
+      color: #484F58;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 0 4px;
+      line-height: 1;
+      transition: color .2s;
+    }
+
+    #chat-close-btn:hover { color: #FF5F56; }
+
+    #chat-messages {
+      flex: 1;
+      padding: 18px 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      font-size: 12.5px;
+      line-height: 1.65;
+    }
+
+    #chat-messages::-webkit-scrollbar { width: 4px; }
+    #chat-messages::-webkit-scrollbar-track { background: transparent; }
+    #chat-messages::-webkit-scrollbar-thumb { background: #30363D; border-radius: 4px; }
+
+    .c-msg {
+      padding: 11px 15px;
+      border-radius: 12px;
+      max-width: 88%;
+      word-break: break-word;
+    }
+
+    .c-msg.bot {
+      background: #161B22;
+      border: 1px solid rgba(255, 255, 255, .06);
+      align-self: flex-start;
+      color: #C9D1D9;
+    }
+
+    .c-msg.bot .bot-label {
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: #7EE787;
+      margin-bottom: 4px;
+    }
+
+    .c-msg.user {
+      background: var(--accent);
+      color: #fff;
+      align-self: flex-end;
+      border: none;
+    }
+
+    .c-msg.thinking {
+      color: #484F58;
+      font-style: italic;
+    }
+
+    .chat-chips {
+      padding: 6px 14px 10px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      flex-shrink: 0;
+    }
+
+    .chat-chips::-webkit-scrollbar { height: 0; }
+
+    .chat-chip {
+      white-space: nowrap;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      letter-spacing: .04em;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(126, 231, 135, .08);
+      border: 1px solid rgba(126, 231, 135, .2);
+      color: #7EE787;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+      flex-shrink: 0;
+    }
+
+    .chat-chip:hover {
+      background: rgba(126, 231, 135, .16);
+      transform: translateY(-1px);
+    }
+
+    #chat-form {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      background: #161B22;
+      border-top: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    #chat-form .chat-prompt-sym {
+      color: #7EE787;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    #chat-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #C9D1D9;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      caret-color: #7EE787;
+    }
+
+    #chat-input::placeholder { color: #30363D; }
+
+    #chat-form .chat-send {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10.5px;
+      letter-spacing: .06em;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+    }
+
+    #chat-form .chat-send:hover {
+      background: #2438d0;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 600px) {
+      #ai-chat-btn .btn-label { display: none; }
+      #ai-chat-btn { padding: 12px 14px; }
+      #ai-chat-drawer {
+        right: 8px;
+        bottom: 78px;
+        width: calc(100vw - 16px);
+        height: calc(100vh - 100px);
+        border-radius: 14px;
+      }
+    }
   </style>
 </head>
 
@@ -1594,6 +1859,40 @@
     </div>
   </section>
 
+  <!-- ============ VISHNU AI CHATBOT ============ -->
+  <button id="ai-chat-btn" aria-label="Ask Vishnu AI">
+    <span class="btn-pulse"></span>
+    <span class="btn-label">Ask Vishnu AI</span>
+  </button>
+
+  <div id="ai-chat-drawer" class="hidden">
+    <div class="chat-bar">
+      <div class="chat-dots"><span class="cd-r"></span><span class="cd-y"></span><span class="cd-g"></span></div>
+      <div class="chat-title"><span class="chat-status"></span>vishnu-ai · online</div>
+      <button id="chat-close-btn">&times;</button>
+    </div>
+
+    <div id="chat-messages">
+      <div class="c-msg bot">
+        <div class="bot-label">vishnu-ai</div>
+        Hey! I'm <strong>Vishnu's AI agent</strong> — powered by RAG over his real projects, stack, and experience. Ask me anything.
+      </div>
+    </div>
+
+    <div class="chat-chips">
+      <button class="chat-chip">What's your core stack?</button>
+      <button class="chat-chip">Tell me about LegalMind</button>
+      <button class="chat-chip">Open to remote roles?</button>
+      <button class="chat-chip">Career-Pilot MCP?</button>
+    </div>
+
+    <form id="chat-form">
+      <span class="chat-prompt-sym">❯</span>
+      <input type="text" id="chat-input" placeholder="ask vishnu-ai..." required autocomplete="off" />
+      <button type="submit" class="chat-send">Send</button>
+    </form>
+  </div>
+
   <!-- ============ SCRIPTS ============ -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
@@ -1938,6 +2237,78 @@
       });
 
       window.addEventListener('load', () => ScrollTrigger.refresh());
+    })();
+  </script>
+
+  <!-- Vishnu AI Chatbot Controller -->
+  <script>
+    (() => {
+      const API = 'https://portfolio-e1gb.onrender.com/chat';
+      const btn = document.getElementById('ai-chat-btn');
+      const drawer = document.getElementById('ai-chat-drawer');
+      const closeBtn = document.getElementById('chat-close-btn');
+      const form = document.getElementById('chat-form');
+      const input = document.getElementById('chat-input');
+      const msgs = document.getElementById('chat-messages');
+
+      // Toggle drawer
+      btn.addEventListener('click', () => {
+        drawer.classList.toggle('hidden');
+        if (!drawer.classList.contains('hidden')) input.focus();
+      });
+      closeBtn.addEventListener('click', () => drawer.classList.add('hidden'));
+
+      // Escape key closes
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && !drawer.classList.contains('hidden')) drawer.classList.add('hidden');
+      });
+
+      // Chip buttons
+      document.querySelectorAll('.chat-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          input.value = chip.textContent;
+          form.dispatchEvent(new Event('submit'));
+        });
+      });
+
+      function addMsg(text, role) {
+        const div = document.createElement('div');
+        div.className = 'c-msg ' + role;
+        if (role === 'bot') {
+          div.innerHTML = '<div class="bot-label">vishnu-ai</div>' + text;
+        } else {
+          div.textContent = text;
+        }
+        msgs.appendChild(div);
+        msgs.scrollTop = msgs.scrollHeight;
+        return div;
+      }
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const query = input.value.trim();
+        if (!query) return;
+
+        addMsg(query, 'user');
+        input.value = '';
+
+        const thinking = addMsg('Thinking...', 'bot thinking');
+
+        try {
+          const res = await fetch(API, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: query })
+          });
+          const data = await res.json();
+          thinking.classList.remove('thinking');
+          thinking.innerHTML = '<div class="bot-label">vishnu-ai</div>' + (data.response || 'Sorry, I couldn\'t process that.');
+        } catch {
+          thinking.classList.remove('thinking');
+          thinking.innerHTML = '<div class="bot-label">vishnu-ai</div>I\'m offline right now. Reach me at <a href="mailto:vishnup22102002@gmail.com" style="color:#7EE787">vishnup22102002@gmail.com</a>';
+        }
+        msgs.scrollTop = msgs.scrollHeight;
+      });
     })();
   </script>
 </body>
