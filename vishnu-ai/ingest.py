@@ -116,6 +116,7 @@ def main():
         collection_name=COLLECTION,
         vectors_config=VectorParams(size=EMBED_DIM, distance=Distance.COSINE)
     )
+    client.create_payload_index(collection_name=COLLECTION, field_name="title", field_schema="keyword")
     print(f"Collection '{COLLECTION}' created ({EMBED_DIM}d, cosine).")
 
     # 4. Chunk knowledge base

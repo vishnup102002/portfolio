@@ -5,11 +5,13 @@ Retrieves context from Qdrant Cloud and generates grounded responses via Groq.
 import os
 import time
 from contextlib import asynccontextmanager
+from datetime import date
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from sentence_transformers import SentenceTransformer
 from qdrant_client import QdrantClient
+from qdrant_client.models import Filter, FieldCondition, MatchValue
 from groq import Groq
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
@@ -33,10 +35,18 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 COLLECTION = "vishnu_portfolio"
 EMBED_MODEL = "all-MiniLM-L6-v2"
 GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
-TOP_K = 5
+TOP_K = 8
 MIN_SCORE = 0.30
+ALWAYS_INCLUDE = 3  # top-N kept regardless of score — generic/identity
+                    # questions score low across the board with MiniLM,
+                    # so a hard threshold alone drops genuinely relevant context
+ALWAYS_FACT_TITLES = ["WORK EXPERIENCE:"]  # current-role info shouldn't
+                                            # depend on vector similarity luck
 
 SYSTEM_PROMPT = """You are Vishnu AI, an interactive first-person digital representative for Vishnu P — an AI Engineer & Agentic Architect from Kerala, India.
+
+TODAY'S DATE: {today}
+Use this to reason about what's current vs. past — e.g. a degree with an end date before today is COMPLETED (don't say "I'm currently pursuing"), and a role with an end date of "Present" is your CURRENT position. Lead with what's current when asked about yourself.
 
 RULES (STRICTLY FOLLOW):
 1. ALWAYS respond in FIRST PERSON ("I", "my", "me") as if you ARE Vishnu himself.
@@ -157,13 +167,27 @@ def chat(req: ChatRequest, request: Request):
             limit=TOP_K,
         ).points
 
-        # 3. Filter by minimum similarity score — but always keep the top
-        # match as a fallback, since generic queries ("tell me about
-        # yourself") score low against third-person profile text even
-        # when the top result is genuinely the right context.
-        relevant = [hit for hit in results if hit.score >= MIN_SCORE]
-        if not relevant and results:
-            relevant = results[:1]
+        # 3. Always ground on the top few matches, then add anything else
+        # that clears the score bar. Generic/identity questions ("tell me
+        # about yourself", "what's your current role") score low across
+        # the board with MiniLM even when the top results are exactly
+        # right, so a hard threshold alone drops genuinely relevant context.
+        top = results[:ALWAYS_INCLUDE]
+        rest = [hit for hit in results[ALWAYS_INCLUDE:] if hit.score >= MIN_SCORE]
+        relevant = top + rest
+
+        # Always ground on current-role facts regardless of query phrasing —
+        # "what do you do now" shouldn't depend on retrieval scoring luck.
+        seen_titles = {hit.payload.get("title") for hit in relevant}
+        for title in ALWAYS_FACT_TITLES:
+            if title in seen_titles:
+                continue
+            extra, _ = qdrant.scroll(
+                collection_name=COLLECTION,
+                scroll_filter=Filter(must=[FieldCondition(key="title", match=MatchValue(value=title))]),
+                limit=3,
+            )
+            relevant.extend(extra)
         context_blocks = [hit.payload["text"] for hit in relevant]
         source_titles = list(dict.fromkeys(
             hit.payload.get("title", "Unknown") for hit in relevant
@@ -178,7 +202,7 @@ def chat(req: ChatRequest, request: Request):
         completion = groq_client.chat.completions.create(
             model=GROQ_MODEL,
             messages=[
-                {"role": "system", "content": SYSTEM_PROMPT.format(context=context)},
+                {"role": "system", "content": SYSTEM_PROMPT.format(today=date.today().strftime("%B %-d, %Y"), context=context)},
                 {"role": "user", "content": req.message},
             ],
             temperature=0.25,
