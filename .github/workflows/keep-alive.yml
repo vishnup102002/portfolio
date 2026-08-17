@@ -10,4 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ping /health
-        run: curl -sS -m 20 https://portfolio-e1gb.onrender.com/health
+        # GitHub's scheduler often delays/skips runs on low-traffic repos,
+        # so gaps between pings can exceed Render's ~15min idle-sleep
+        # threshold. A cold start takes 30-60s — give it enough time to
+        # actually wake up instead of timing out and reporting a false failure.
+        run: curl -sS -m 90 --retry 2 --retry-delay 5 https://portfolio-e1gb.onrender.com/health
